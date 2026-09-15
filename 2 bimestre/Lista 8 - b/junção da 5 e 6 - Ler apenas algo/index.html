@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ler apenas vogais ou apenas consoantes</title>
+</head>
+<body>
+    <h1>Escrever uma palavra ou uma frase e clicar no botão o qual deseja saber apenas as vogais ou apenas as consoantes</h1>
+    <label for="palavra">Frase ou palavra: </label>
+    <input type="text" id="palavra">
+    <br>
+    <button onclick="Consoantes()">Consoantes</button>
+    <button onclick="Vogais()">Vogais</button>
+    <br>
+    <span id="resp"> </span>
+
+    <script>
+    function Consoantes() {
+       let palavra = document.getElementById("palavra").value;
+       let aux = "";
+
+            for (let i = 0; i < palavra.length; i++) {
+            if (palavra[i].toLowerCase() === "a" || palavra[i].toLowerCase() === "e" || palavra[i].toLowerCase() === "i" || palavra[i].toLowerCase() === "o" || palavra[i].toLowerCase() === "u") {
+                aux = aux
+            } else {
+                aux += palavra[i]
+            }
+        }
+
+        document.getElementById("resp").innerHTML = aux
+       }
+
+       function Vogais() {
+       let palavra = document.getElementById("palavra").value;
+       let aux = "";
+
+            for (let i = 0; i < palavra.length; i++) {
+            if (palavra[i].toLowerCase() === "a" || palavra[i].toLowerCase() === "e" || palavra[i].toLowerCase() === "i" || palavra[i].toLowerCase() === "o" || palavra[i].toLowerCase() === "u") {
+                aux += palavra[i]
+            } else {
+                aux = aux
+            }
+        }
+
+        document.getElementById("resp").innerHTML = aux
+       }
+
+
+    </script>
+    
+</body>
+</html>

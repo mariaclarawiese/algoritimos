@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substituir caracteres</title>
+</head>
+<body>
+    <h1>Substituir um CARACTERE por outro</h1>
+    <label for="frase">Frase: </label>
+    <input type="text" id="frase">
+    <br>
+    <label for="cAntigo">Caracter que vai ser substituído: </label>
+    <input type="text" id="cAntigo">
+    <br>
+    <label for="cnovo">Caracter que vai substituir: </label>
+    <input type="text" id="cNovo">
+    <br>
+    <button onclick="Calcular()">Substituir</button>
+    <br>
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+            let frase = document.getElementById("frase").value;
+            let cAntigo = document.getElementById("cAntigo").value;
+            let cNovo = document.getElementById("cNovo").value;
+            let resposta = Substituir(frase, cAntigo, cNovo);
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function  Substituir(frase, cAntigo, cNovo) {
+            let aux = "";
+
+            for (let i = 0; i < frase.length; i++) {
+                if(frase[i].toLowerCase() === cAntigo.toLowerCase()) {
+                    aux += cNovo
+                } else {
+                    aux += frase[i]
+                }
+            }
+            return aux
+        }
+
+
+    </script>
+    
+</body>
+</html>

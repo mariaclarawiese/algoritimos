@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>10 primeiros primos maiores que 100</title>
+  </head>
+  <body>
+    <h1>10 primeiros primos maiores que 100</h1>
+    <button onclick="Primos()">Gerar</button>
+    <br /><br />
+
+    <span id="resp"></span>
+
+    <script>
+      function Primos() {
+        let vetor = [];
+        let num = 101;
+
+        while (vetor.length < 10) {
+          let primo = true;
+
+          for (let i = 2; i < num; i++) {
+            if (num % i == 0) {
+              primo = false;
+            }
+          }
+
+          if (primo) {
+            vetor.push(num);
+          }
+
+          num++;
+        }
+
+        document.getElementById("resp").innerHTML = "Vetor X: [" + vetor + "]";
+      }
+    </script>
+  </body>
+</html>

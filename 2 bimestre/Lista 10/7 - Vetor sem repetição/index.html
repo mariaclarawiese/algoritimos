@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vetor sem repetir numero</title>
+  </head>
+  <body>
+    <label for="num">Número: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Adicionar()">Adicionar ao vetor</button>
+    <button onclick="Calcular()">Tirar</button>
+    <br />
+    <span id="mostrando">[ ]</span>
+    <br />
+    <span id="resp"></span>
+
+    <script>
+      let vetor = [];
+      function Adicionar() {
+        let numeros = parseInt(document.getElementById("num").value);
+
+        vetor.push(numeros);
+
+        document.getElementById("mostrando").innerHTML = "[" + vetor + "]";
+      }
+
+      function Calcular() {
+        let num = parseInt(document.getElementById("num").value);
+        let resposta = Tirar(num);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Tirar(num) {
+        let feito = [];
+
+        for (let i = 0; i < vetor.length; i++) {
+            let repetido = false;
+
+            for (let j = 0; j < feito.length; j++) {
+              if (vetor[i] == feito[j]) {
+                repetido = true;
+              }
+            }
+
+            if (repetido == false) {
+              feito.push(vetor[i]);
+            }
+          }
+
+          return feito;
+        }
+    </script>
+  </body>
+</html>

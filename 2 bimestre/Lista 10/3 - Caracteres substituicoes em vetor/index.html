@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetor substituicoes</title>
+</head>
+<body>
+    <h1>Le um vetor de caracteres, gera e imprime um outro vetor onde as vogais do primeiro vetor sejam substituídas pelo caractere *</h1>
+    <br>
+    <label for="cINICIAL">Caracteres</label>
+    <input type="text" id="cINICIAL">
+    <br>
+    <button onclick="Calcular()">Gerar novo</button>
+    <br>
+    <span id="resp"></span>
+    
+    <script>
+        function Calcular() {
+            let cINICIAL = document.getElementById("cINICIAL").value;
+            let resposta = Troca(cINICIAL)
+
+            document.getElementById("resp").innerHTML = resposta.join("")
+        }
+
+        function Troca(cINICIAL) {
+            let cFINAL = []
+            let separado = cINICIAL.split("");
+
+            for (let i = 0; i < cINICIAL.length; i++) {
+                if (separado[i].toLowerCase() === "a" || separado[i].toLowerCase() === "e" || separado[i].toLowerCase() === "i" || separado[i].toLowerCase() === "o" || separado[i].toLowerCase() === "u") {
+                   cFINAL.push("*")
+                } else {
+                 cFINAL.push(separado[i])
+                }
+            }
+            return cFINAL
+        }
+    </script>
+    
+</body>
+</html>

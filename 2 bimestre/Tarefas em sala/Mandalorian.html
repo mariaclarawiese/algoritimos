@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Caçadores de Recompensas</title>
+</head>
+<body>
+
+    <label>Nome do Caçador:</label>
+    <input type="text" id="nome"><br><br>
+
+    <label>Dificuldade (1, 2 ou 3):</label>
+    <input type="number" id="dificuldade"><br><br>
+
+    <label>Valor Base da Recompensa:</label>
+    <input type="number" id="valor"><br><br>
+
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="listar()">Listar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        let nomes = [];
+        let dificuldades = [];
+        let valores = [];
+
+        function adicionar() {
+
+            let nome = document.getElementById("nome").value;
+            let dificuldade = parseInt(document.getElementById("dificuldade").value);
+            let valor = parseFloat(document.getElementById("valor").value);
+
+            nomes.push(nome);
+            dificuldades.push(dificuldade);
+            valores.push(valor);
+
+            document.getElementById("nome").value = "";
+            document.getElementById("dificuldade").value = "";
+            document.getElementById("valor").value = "";
+
+        }
+
+        function calcularBonus(valor, dificuldade){
+
+            if(dificuldade == 1){
+                return valor;
+            }
+            else if(dificuldade == 2){
+                return valor * 1.15;
+            }
+            else{
+                return valor * 1.25;
+            }
+
+        }
+
+        function listar(){
+
+            let texto = "";
+
+            for(let i = 0; i < nomes.length; i++){
+
+                let valorFinal = calcularBonus(valores[i], dificuldades[i]);
+
+                texto += "Caçador: " + nomes[i] + "<br>";
+                texto += "Dificuldade: " + dificuldades[i] + "<br>";
+                texto += "Valor Base: R$ " + valores[i] + "<br>";
+                texto += "Valor Final: R$ " + valorFinal.toFixed(2) + "<br><br>";
+
+            }
+
+            document.getElementById("resultado").innerHTML = texto;
+
+        }
+
+    </script>
+
+</body>
+</html>

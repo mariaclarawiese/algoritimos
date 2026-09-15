@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavra invertida</title>
+</head>
+<body>
+    <h1>Inverter uma palara</h1>
+    <br/>
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome"/>
+    <br />
+    <button onclick="Calcular()">Inverter</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+    let palavra = document.getElementById("nome").value;
+    let resposta = Inverter(palavra);
+
+    document.getElementById("resp").innerHTML = resposta;
+}
+
+    function Inverter(palavra) {
+    let aux = "";
+
+    for (let i = palavra.length - 1; i >= 0; i--) {
+        aux += palavra[i];
+    }
+
+    return aux;
+}
+    </script>
+    
+</body>
+</html>

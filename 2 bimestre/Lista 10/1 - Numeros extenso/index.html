@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numeros por extenso</title>
+  </head>
+  <body>
+    <h1>Escreve números digitados por extenso. (De 0 a 9)</h1>
+    <label for="num">Número inteiro: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Calcular()">Escrever</button>
+    <br />
+    <span id="resp"> </span>
+    <br />
+
+    <script>
+      function Calcular() {
+        let num = document.getElementById("num").value;
+        let numSEP = num.split("");
+        let resposta = Escrever(numSEP);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Escrever(numSEP) {
+        let aux = "";
+
+        for (let i = 0; i < numSEP.length; i++) {
+          if (numSEP[i] === "0") {
+            aux += "Zero, ";
+          } else if (numSEP[i] === "1") {
+            aux += "Um, ";
+          } else if (numSEP[i] === "2") {
+            aux += "Dois, ";
+          } else if (numSEP[i] === "3") {
+            aux += "Três, ";
+          } else if (numSEP[i] === "4") {
+            aux += "Quatro, ";
+          } else if (numSEP[i] === "5") {
+            aux += "Cinco, ";
+          } else if (numSEP[i] === "6") {
+            aux += "Seis, ";
+          } else if (numSEP[i] === "7") {
+            aux += "Sete, ";
+          } else if (numSEP[i] === "8") {
+            aux += "Oito, ";
+          } else if (numSEP[i] === "9") {
+            aux += "Nove, ";
+          } 
+        }
+
+        return aux;
+      }
+    </script>
+  </body>
+</html>

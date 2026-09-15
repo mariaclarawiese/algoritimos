@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Se um ano é bissexto ou normal</title>
+</head>
+<body>
+    <h1>Descobrir se um ano é normal ou bissexto</h1>
+
+    <label for="ano">Ano: </label>
+    <input type="number" id="ano">
+
+    <br>
+
+    <input type="button" id="button" value="Verificar" onclick= "verificar ()">
+
+    <br>
+
+    <p id="resp"> </p>
+
+    <script>
+        function conta() {
+            let ano = parseFloat(document.getElementById("ano").value)
+            let conta1 = ano %4
+            let conta2 = ano %400
+            let conta3 = ano %100
+            let resposta
+
+            if (conta1 === 0) {
+                return resposta = "O ano " + ano+ " é bissexto"
+            } else if (conta3 === 0 && conta2 === 0) {
+                return resposta = "O ano " + ano+ " é bissexto"
+            } else {
+                return resposta = "O ano " + ano+ " não é bissexto"
+            }
+
+
+        }
+        
+        function verificar () {
+            let ano = parseFloat(document.getElementById("ano").value)
+            let resposta = conta()
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirar caracteres repetidos</title>
+  </head>
+  <body>
+    <label for="palavra">Palavra: </label>
+    <input type="text" id="palavra" />
+    <br />
+    <button onclick="Calcular()">Tirar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let palavra = document.getElementById("palavra").value;
+        let resposta = Tirar(palavra);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Tirar(palavra) {
+        let letras = palavra.split("");
+        let resposta = " ";
+
+        for (let i = 0; i < letras.length; i++) {
+          let repetida = false;
+
+          for (let j = 0; j < resposta.length; j++) {
+            if (letras[i] == resposta[j]) {
+              repetida = true;
+            }
+          }
+
+          if (repetida == false) {
+            resposta += letras[i];
+          }
+        }
+
+        return resposta;
+      }
+    </script>
+  </body>
+</html>

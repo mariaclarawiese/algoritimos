@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de numeros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Soma do 1 até um número inteiro positivo digitado pelo usuário</h1>
+
+    <label for="numero">Número: </label>
+    <input type="number" id="numero" placeholder="Digite o número aqui">
+    <br>
+    
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+            let numero = parseInt(document.getElementById("numero").value);
+            
+            if (numero < 0) {
+                resposta = "ERRO, digite um número positivo";
+            } else {
+                resposta = Soma(numero)
+            }
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Soma(numero) {
+            let aux = 0;
+            let i = 1
+
+            while (i <= numero) {
+                aux = aux + i
+                i++ // isso é igual a i = i + 1
+            }
+            return aux
+             }
+    </script>
+    
+</body>
+</html>

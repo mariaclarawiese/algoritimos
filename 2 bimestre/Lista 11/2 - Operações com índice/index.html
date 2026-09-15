@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operacoes com indice</title>
+  </head>
+  <body>
+    <label for="Vetor1">Digite um número por vez: </label>
+    <input type="number" id="Vetor1" />
+    <br />
+    <label for="Vetor2">Digite um número por vez: </label>
+    <input type="number" id="Vetor2" />
+    <br />
+    <button onclick="Adicionar1()">Adicionar ao primeiro vetor</button>
+    <button onclick="Adicionar2()">Adicionar ao segundo vetor</button>
+    <button onclick="Calcular()">Calcular</button>
+    <br />
+    <span id="oneVetor">Primeiro vetor: []</span>
+    <br />
+    <br />
+    <span id="twoVetor">Segundo vetor: []</span>
+    <br />
+    <br />
+    <span id="resp">Resposta: []</span>
+
+    <script>
+      let vetor1 = [];
+      let vetor2 = [];
+
+      function Adicionar1() {
+        let v1 = parseInt(document.getElementById("Vetor1").value);
+
+        if (vetor1.length >= 10) {
+          alert("Digite 10 números")
+          return;
+        }
+
+        vetor1.push(v1);
+
+        document.getElementById("oneVetor").innerHTML = "[" + vetor1 + "]";
+      }
+
+      function Adicionar2() {
+        let v2 = parseInt(document.getElementById("Vetor2").value);
+
+        if (vetor2.length >= 10) {
+          alert("Digite 10 números")
+          return;
+        }
+
+        vetor2.push(v2);
+
+        document.getElementById("twoVetor").innerHTML = "[" + vetor2 + "]";
+      }
+
+      function Calcular() {
+        if (vetor1.length != 10 || vetor2.length != 10) {
+          alert("Os dois vetores precisam ter 10 números.");
+          return;
+        } 
+         let resposta = "[" + Multiplic() + "]";
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Multiplic() {
+        let v3 = [];
+
+        for (let i = 0; i < 10; i++) {
+          v3.push(vetor1[i] * vetor2[i]);
+        }
+
+        return v3;
+      }
+    </script>
+  </body>
+</html>

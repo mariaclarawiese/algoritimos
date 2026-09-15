@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Calculo refri</title>
+</head>
+<body>
+
+<h1>Cálculo de quantos litros de refrigerante foram comprados</h1>
+<p>lata de 350ml, garrafa de 600ml e garrafa de 2l</p>
+
+<br>
+
+<label for="lata350mL">Quantidade de latas de 350 mL: </label>
+<input type="number" id="lata350mL">
+
+<br>
+
+<label for="garrafa600mL">Quantidade de garrafas de 600 mL: </label>
+<input type="number" id="garrafa600mL">
+
+<br>
+
+<label for="garrafa2L">Quantidade de garrafas de 2L: </label>
+<input type="number" id="garrafa2L">
+
+<br>
+
+<input type="button" id="button" value="Calcular litros" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="resposta">Quantidade de litros comprados: </label>
+<span id="resposta"></span>
+
+<script>
+function funcaocalcular () {
+ 
+    let lata350mL = parseFloat(document.getElementById("lata350mL").value)
+    let garrafa600mL = parseFloat(document.getElementById("garrafa600mL").value)
+    let garrafa2L = parseFloat(document.getElementById("garrafa2L").value)
+
+    let lataL = (lata350mL * 350/ 1000)
+    let garrafaL1 = (garrafa600mL * 600 / 1000)
+    let garrafaL2 = (garrafa2L * 2)
+
+    let resposta = (lataL + garrafaL1 + garrafaL2)
+
+    document.getElementById("resposta").innerHTML = resposta 
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
+
+
+    

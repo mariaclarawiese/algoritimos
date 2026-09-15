@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular</title>
+  </head>
+  <body>
+    <label for="num">Número: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Adicionar()">Adicionar ao vetor</button>
+    <button onclick="Calcular()">Calcular</button>
+    <br />
+    <span id="mostrar">[ ]</span>
+    <br />
+    <br />
+    <span id="resp"></span>
+
+    <script>
+      let vetor = [];
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        vetor.push(num);
+
+        document.getElementById("mostrar").innerHTML = "[" + vetor + "]";
+      }
+
+      function Calcular() {
+        let num = parseInt(document.getElementById("num").value);
+        let total = vetor.length;
+        let media = Media(num);
+        let negativo = 0;
+        let positivo = 0;
+        let nulo = 0;
+
+        for (let i = 0; i < vetor.length; i++) {
+          if (vetor[i] < 0) {
+            negativo++;
+          } else if (vetor[i] > 0) {
+            positivo++;
+          } else {
+            nulo++;
+          }
+        }
+
+        let porcentN = (negativo / total) * 100;
+        let porcentP = (positivo / total) * 100;
+
+        let resposta =
+          "A média é: " +
+          media +
+          "<br>" +
+          "Tem " +
+          negativo +
+          " números negativos" +
+          "<br>" +
+          "Tem " +
+          positivo +
+          " números positivos" +
+          "<br>" +
+          "Tem " +
+          nulo +
+          " números nulos" +
+          "<br>" +
+          "Os números negativos compõem " +
+          porcentN +
+          "% do total e os números positivos compõem " +
+          porcentP +
+          "% do total.";
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Media(num) {
+        let aux = 0;
+
+        for (let i = 0; i < vetor.length; i++) {
+          aux += vetor[i];
+        }
+
+        let resps = aux / vetor.length;
+
+        return resps;
+      }
+    </script>
+  </body>
+</html>

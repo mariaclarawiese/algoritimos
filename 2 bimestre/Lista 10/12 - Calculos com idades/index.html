@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculos com idades</title>
+  </head>
+  <body>
+    <label for="idade">Digite as idades uma por uma: </label>
+    <input type="number" id="idade" />
+    <br />
+    <button onclick="Adicionar()">Adicionar idade</button>
+    <button onclick="Calcular()">Calcular operações</button>
+    <br />
+    <span id="mostrar">Idades: </span>
+    <br />
+    <br />
+    <span id="resp"></span>
+
+    <script>
+    let vetor = [];
+
+    function Adicionar() {
+        let idade = parseInt(document.getElementById("idade").value);
+
+        if (idade < 0) {
+            alert("ERRO, não tem como ser uma idade negativa.");
+            return;
+        }
+
+        vetor.push(idade);
+
+        document.getElementById("mostrar").innerHTML = "Idades: [" + vetor + "]";
+    }
+
+    function Calcular() {
+
+        if (vetor.length == 0) {
+            alert("Adicione pelo menos uma idade.");
+            return;
+        }
+
+        let vinteUM = 0;
+        let bissexto = 0;
+
+        for (let i = 0; i < vetor.length; i++) {
+
+            if (vetor[i] >= 21) {
+                vinteUM++;
+            }
+
+            let ano = 2026 - vetor[i];
+
+            if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)) {
+                bissexto++;
+            }
+        }
+
+        let soma = Soma();
+        let media = Media();
+
+        let resposta =
+            "Tem " + vinteUM + " pessoas com 21 ou mais anos.<br>" +
+            "Tem " + bissexto + " pessoas que nasceram em ano bissexto.<br>" +
+            "A soma de todas as idades é " + soma + ".<br>" +
+            "A média de todas as idades é " + media + ".";
+
+        document.getElementById("resp").innerHTML = resposta;
+    }
+
+    function Soma() {
+        let aux = 0;
+
+        for (let i = 0; i < vetor.length; i++) {
+            aux += vetor[i];
+        }
+
+        return aux;
+    }
+
+    function Media() {
+        let aux = 0;
+
+        for (let i = 0; i < vetor.length; i++) {
+            aux += vetor[i];
+        }
+
+        return aux / vetor.length;
+    }
+</script>
+    </script>
+  </body>
+</html>

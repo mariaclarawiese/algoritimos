@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Operacoes</title>
+</head>
+<body>
+    <div class="operac">
+        <ul class="lista">
+            <li id="titulo">Operações: </li>
+            <li>Se for um número negativo, descobrir o dobro</li>
+            <li>Se for um número positivo, descobir o triplo</li>
+            <li>Se for 0, sinalizar que é neutro/nulo</li>
+        </ul>
+    </div>
+
+    <label for="numero">Número: </label>
+    <input type="number" id="numero" placeholder="Digite o número aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="calcular()">
+
+    <p id="result"> </p>
+
+    <script>
+        function calcular() {
+            let number = parseFloat(document.getElementById("numero").value);
+            let operacao1 =  number * 2
+            let operacao2 = number * 3
+
+            let resposta
+
+
+            if (number < 0) {
+                resposta = "O dobro de "+ number + " é " + operacao1
+            } else if (number > 0) {
+                resposta = "O triplo de "+ number + " é " + operacao2
+            } else {
+                resposta = "O número 0 é neutro, portanto qualquer número multiplicado por 0 é igual a 0"
+            }
+
+            document.getElementById("result").innerHTML = resposta
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros pares de 1 a N</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Números pares de 1 até um número</h1>
+    <br>
+    <label for="number">Digite o número: </label>
+    <input type="number" id="number" placeholder="Digite aqui">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <span id="resp"> </span>
+    <br>
+
+    <script>
+        function Calcular() {
+            let numero = parseFloat(document.getElementById("number").value);
+            let resposta
+
+            if (numero == 0) {
+                alert("Digite um número não nulo")
+            } else {
+                resposta = Pares(numero)
+            }
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Pares(numero) {
+            let aux = " ";
+
+            for (let i = 1 ; i < numero; i++) {
+                if (i % 2 == 0) {
+                    aux = aux + i + " , "
+                } else {
+                    aux = aux
+                }
+            }
+            return aux
+        }
+    </script>
+    
+</body>
+</html>

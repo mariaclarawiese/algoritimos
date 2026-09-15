@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caracteres repetidos</title>
+  </head>
+  <body>
+    <h1>Verificar se a palavra tem dois caracteres repetidos consecutivos</h1>
+    <label for="palavra">Palavra: </label>
+    <input type="text" id="palavra" />
+    <br />
+    <button onclick="Calcular()">Verificar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let palavra = document.getElementById("palavra").value;
+        let resposta = Verificar(palavra);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+        function Verificar(palavra) {
+          for (let i = 0; i < palavra.length - 1; i++) {
+            if (palavra[i].toLowerCase() === palavra[i + 1].toLowerCase()) {
+              return "Tem caracteres repetidos consecutivos";
+            }
+          }
+
+          return "Não tem caracteres repetidos consecutivos";
+        }
+    </script>
+  </body>
+</html>

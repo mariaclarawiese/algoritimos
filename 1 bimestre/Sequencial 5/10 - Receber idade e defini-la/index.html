@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Idade e faixa etaria</title>
+</head>
+<body>
+    <div class="tipos">
+        <ul class="lista">
+            <li id="titulo">Faixas etárias: </li>
+            <li>Até 12 anos é uma criança;</li>
+            <li>De 13 a 18 é um adolescente;</li>
+            <li>De 19 a 60 é um adulto;</li>
+            <li>Acima de 60 é um idoso.</li>
+        </ul>
+    </div>
+
+    <label for="idade">Idade: </label>
+    <input type="number" id="idade" placeholder="Digite a idade aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Classificar" onclick="calcular()">
+
+    <p id="resp"> </p>
+
+    <script>
+        function calcular() {
+            let idade = parseFloat(document.getElementById("idade").value)
+            let resposta
+
+            if (idade < 0) {
+                resposta = "Não existe idade negativa"
+            } else if (idade >= 0 && idade <= 12) {
+                resposta = "Essa pessoa é uma criança"
+            } else if (idade >= 13 && idade <= 18) {
+                resposta = "Essa pessoa é uma adolescente"
+            } else if (idade >= 19 && idade <= 60) {
+                resposta = "Essa pessoa é um adulto"
+            } else if (idade > 60) {
+                resposta = "Essa pessoa é um idoso"
+            }
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+    </script>
+    
+</body>
+</html>

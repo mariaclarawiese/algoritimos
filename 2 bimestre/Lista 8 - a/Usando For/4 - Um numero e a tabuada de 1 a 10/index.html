@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada de 1 a 10 de um numero</title>
+</head>
+<body>
+    <h1>Tabuada de 1 a 10 de um número</h1>
+    <label for="numero">Número: </label>
+    <input type="number" id="numero" placeholder="Digite aqui">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <span id="resp"> </span>
+    <br>
+
+    <script>
+        function Calcular() {
+            let numero = parseFloat(document.getElementById("numero").value);
+            let resposta = Tabuada(numero)
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Tabuada(numero) {
+            let aux = "";
+
+            for (let i = 1; i <= 10; i++) {
+                aux += i + " x " + numero + " = " + i * numero + "<br>"
+            }  
+            return aux
+        }
+    </script>
+    
+</body>
+</html>

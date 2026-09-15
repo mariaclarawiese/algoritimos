@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar e exibir matriz</title>
+  </head>
+  <body>
+    <h1>Criar uma matriz e exibir ela</h1>
+
+    <label for="linhas">Linhas: </label>
+    <input type="number" id="linhas" />
+
+    <br />
+    <br />
+
+    <label for="colunas">Colunas: </label>
+    <input type="number" id="colunas" />
+
+    <br />
+    <br />
+
+    <label for="num">Número: </label>
+    <input type="number" id="num" />
+
+    <br />
+    <br />
+
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="Exibir()">Exibir</button>
+
+    <p id="resp"> </p>
+
+    <script>
+      let matriz = [];
+      let linhas;
+      let colunas;
+
+      function Matriz() {
+         colunas = parseInt(document.getElementById("colunas").value)
+         linhas = parseInt(document.getElementById("linhas").value)
+        for (let i = 0; i < linhas; i++) {
+          matriz[i] = [];
+
+          for (let j = 0; j < colunas; j++) {
+            matriz[i][j] = 0;
+          }
+        }
+        return matriz;
+      }
+
+      let i = 0
+      let j = 0
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (matriz.length == 0) {
+            Matriz()
+        }
+        if (j == colunas) {
+            j = 0
+            i++
+        }
+
+        if (i == linhas) {
+            alert("A matriz está cheia")
+            return
+        }
+
+        matriz[i][j] = num
+
+        j++
+      }
+
+      function Exibir() {
+        let aux = " ";
+
+        for (let i = 0; i < linhas; i++) {
+            for (let j = 0; j < colunas; j++) {
+                aux += matriz[i][j] + " "
+            }
+            aux += "<br>"
+        }
+
+        document.getElementById("resp").innerHTML = aux
+      }
+    </script>
+  </body>
+</html>

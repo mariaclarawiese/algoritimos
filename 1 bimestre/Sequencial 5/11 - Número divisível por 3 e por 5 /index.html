@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Numero divisivel por tres e cinco</title>
+</head>
+<body>
+    <h1>Verificar se um número é divisível por 3 e 5 ao mesmo tempo</h1>
+
+    <label for="numero">Número: </label>
+    <input type="number" id="numero" placeholder="Digite o número aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="calcular ()">
+
+    <p id="resp"> </p>
+
+    <script>
+       function TresCinco () {
+        let number = parseFloat(document.getElementById("numero").value)
+        let resto3 = number %3
+        let resto5 = number %5
+        let resposta
+
+        if (resto3 === 0 && resto5 === 0){
+            return resposta = "O número " + number + " é divisível por 3 e 5"
+        } else {
+            return resposta = "O número " + number + " não é divisível por 3 e 5"
+        }
+       }
+       
+       
+       function calcular () {
+            let number = parseFloat(document.getElementById("numero").value)
+            let resposta = TresCinco ()
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+    </script>
+    
+</body>
+</html>

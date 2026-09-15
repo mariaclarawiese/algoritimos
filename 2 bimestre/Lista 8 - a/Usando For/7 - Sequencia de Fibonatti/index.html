@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ept-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonatti</title>
+</head>
+<body>
+    <h1>Calcular a sequência de Fibonatti até o termo informado</h1>
+    <br>
+    <label for="termo">Até que número da sequência: </label>
+    <input type="number" id="termo">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <span id="resp"> </span>
+
+    <script>
+     function Calcular() {
+        let termo = parseInt(document.getElementById("termo").value);
+        let resposta
+
+        if (termo <= 0 ) {
+            alert("ERRO, reveja seus termos")
+        } else {
+            resposta = Seq(termo)
+        }
+        document.getElementById("resp").innerHTML = resposta
+    }
+
+     function Seq(termo) {
+        let primeiro = 0;
+        let proximo = 1;
+        let resposta = "";
+        let aux
+
+        for (let i = 1; i <= termo; i++) {
+            resposta += primeiro + " , "
+           
+            aux = primeiro + proximo 
+            primeiro = proximo
+            proximo = aux
+        }
+        return resposta
+     }
+    </script>
+    
+</body>
+</html>

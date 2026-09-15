@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavra sem vogais</title>
+</head>
+<body>
+    <label for="palavra">Palavra: </label>
+    <input type="text" id="palavra" />
+    <br />
+    <button onclick="Calcular()">Tirar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+        let palavra = document.getElementById("palavra").value;
+        let resposta = Tirar(palavra);
+
+        document.getElementById("resp").innerHTML = resposta;
+        }
+
+        function Tirar(palavra) {
+            let aux = ""
+
+            for (let i = 0; i < palavra.length; i++) {
+                if (palavra[i].toLowerCase() === "a" || palavra[i].toLowerCase() === "e" || palavra[i].toLowerCase() === "i" || palavra[i].toLowerCase() === "o" || palavra[i].toLowerCase() === "u" ) {
+                    aux = aux
+                } else {
+                    aux += palavra[i]
+                }
+            }
+            return aux
+        }
+        
+    </script>
+</body>
+</html>

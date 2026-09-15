@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de todos os numeros de algo ate algo</title>
+</head>
+<body>
+    <h1>Soma de todos os números ímpares e múltiplos de 3 de um número até o outro</h1>
+    <label for="num1">De que número começa: </label>
+    <input type="number" id="num1">
+    <br>
+    <label for="num2">Em que número termina: </label>
+    <input type="number" id="num2">
+    <br>
+    <button onclick="Calcular()">Calcular</button>
+    <br>
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+            let inicio = parseInt(document.getElementById("num1").value);
+            let fim = parseInt(document.getElementById("num2").value);
+            let resposta = Calc(inicio, fim) 
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Calc(inicio, fim) {
+            let aux = 0 
+
+            for (let i = inicio; i <= fim; i++) {
+                if (i % 2 != 0 && i % 3 === 0) {
+                    aux += i
+                }
+            }
+            return aux
+        }
+    </script>
+</body>
+</html>

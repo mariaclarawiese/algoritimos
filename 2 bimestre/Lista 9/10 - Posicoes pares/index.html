@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicoes pares</title>
+</head>
+<body>
+   <h1>Verificar os caracteres que estão em posições pares</h1>
+    <label for="palavra">Palavra: </label>
+    <input type="text" id="palavra" />
+    <br />
+    <button onclick="Calcular()">Posições Pares</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+        let palavra = document.getElementById("palavra").value;
+        let resposta = Verificar(palavra);
+
+        document.getElementById("resp").innerHTML = resposta;
+        }
+
+        function Verificar(palavra) {
+            let aux = ""
+
+            for (let i = 0; i < palavra.length; i++) {
+                if (i % 2 === 0) {
+                    aux += palavra[i]
+                } else {
+                    aux = aux
+                }
+            }
+            return aux
+        }
+    </script>
+
+</body>
+</html>

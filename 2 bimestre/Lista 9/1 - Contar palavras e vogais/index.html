@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar vogais e palavras</title>
+</head>
+<body>
+    <label for="frase">Digite aqui: </label> 
+    <input type="text" id="frase">
+    <br>
+    <button onclick="Calcular()">Contar</button>
+    <br>
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+            let frase = document.getElementById("frase").value;
+            let resposta = "O número de vogais é " + ContarV(frase) + " e o número de palavras é " + (ContarP(frase)+1) ;
+
+            document.getElementById("resp").innerHTML = resposta;
+        }
+
+        function ContarV(frase) {
+            let aux = 0;
+
+            for (let i = 0; i < frase.length; i++) {
+                if (frase[i].toLowerCase() == "a" || frase[i].toLowerCase() == "e" || frase[i].toLowerCase() == "i" || frase[i].toLowerCase() == "o" || frase[i].toLowerCase() == "u") {
+                    aux += 1
+                }
+            }
+            return aux
+        }
+
+        function ContarP(frase) {
+            let aux = 0
+
+            for (let i = 0; i < frase.length; i++) {
+                if (frase[i] == " ") {
+                    aux += 1
+                }
+            }
+            return aux
+        }
+    </script>
+    
+</body>
+</html>

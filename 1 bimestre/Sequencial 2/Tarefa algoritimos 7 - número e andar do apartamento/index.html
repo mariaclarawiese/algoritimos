@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>apartamentos</title>
+</head>
+<body>
+<h1>Número e andar do apartamento</h1>
+
+<br>
+
+<label for="numero">Apartamento</label>
+<input type="number" id="number" placeholder="Digite o número aqui">
+
+<br>
+
+<input type="button" id="button" value="calcular" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="apartamento"></label>
+<span id="apartamento"></span>
+
+<br>
+
+<label for="andar"></label>
+<span id="andar"></span>
+
+<script>
+function funcaocalcular () {
+    let number = parseFloat(document.getElementById("number").value)
+   
+    let andar = parseInt(number / 100)
+
+    let apartamento = number - ( andar * 100 )
+
+    document.getElementById("apartamento").innerText = "O número do apartamento é o " + apartamento
+
+    document.getElementById("andar").innerText = "O andar é o " + andar
+}
+
+
+
+
+</script>
+    
+
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome 10 vezes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ler um nome e escrever ele no mínimo 10 vezes em linhas quebradas</h1>
+    <br>
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome" placeholder="Digite o nome aqui">
+    <br>
+    <label for="num">Digite o numero de vezes da repetição aqui: </label>
+    <input type="number" id="num" value="10" placeholder="Digite aqui">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <span id="resp"></span>
+
+    <script>
+       function Calcular() {
+        let nome = document.getElementById("nome").value;
+        let vezes = parseFloat(document.getElementById("num").value);
+        let resposta;
+       
+        if (vezes < 10) {
+            alert("ERRO, não tem como digitar um número negativas vezes ou precisa ser maior ou igual a 10")
+        } else if (vezes == 0) {
+            alert("Não aparecerá nada pois estará escrevendo o nome nenhumas vezes")
+        } else {
+            resposta = NVezes(nome, vezes)
+        }
+        
+        document.getElementById("resp").innerHTML = resposta;
+    }
+
+    function NVezes(nome, vezes) {
+        let aux = " "
+
+        for (let i = 0; i < vezes; i++) {
+            aux += nome + "<br>";
+        }
+
+        return aux
+    }
+
+    </script>
+    
+</body>
+</html>

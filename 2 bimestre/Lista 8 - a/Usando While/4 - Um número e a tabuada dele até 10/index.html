@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tabuada de um número inteiro de 1 a 10</h1>
+    <p>OBS: Se o usuário digitar um número que não é inteiro ele vai ser transformado em número inteiro</p>
+    <br>
+    <label for="n">Número inteiro: </label>
+    <input type="number" id="n" placeholder="Digite aqui">
+    <br>
+    <input type="button" value="Tabuada" onclick="Calcular()">
+    <br>
+    <p id="resp">A tabuada sairá aqui</p>
+
+    <script>
+        function Calcular() {
+            let numero = parseInt(document.getElementById("n").value);
+             
+            let tabuada = Tabuada(numero);
+
+            document.getElementById("resp").innerHTML = tabuada
+        }
+
+        function Tabuada(numero) {
+            let aux = " ";
+            let i = 1
+
+            while (i < 11) {
+             aux = aux + numero + " x " + i + " = " + (numero * i) + "<br>";
+                i++
+             }
+             return aux
+        }
+    </script>
+    
+</body>
+</html>

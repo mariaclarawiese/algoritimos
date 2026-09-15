@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome em formato ingles</title>
+</head>
+<body>
+    <label for>Nome: </label>
+    <input type="text" id="nome">
+
+    <br>
+
+    <input type="button" id="button" value="Formato" onclick="Formato()">
+
+    <p id="resp"></p>
+
+    <script>
+        function Formato() {
+            let nome = document.getElementById("nome").value;
+            let aux = nome.split(" ");
+            let ultimo = aux[aux.length - 1];
+            let resto = "";
+            
+           for (let i = 0; i < aux.length - 1; i++) {
+             resto += aux[i] + " ";
+}
+
+            let resposta = document.getElementById("resp").innerHTML = ultimo + " , " + resto
+        }
+    </script>
+
+    
+</body>
+</html>

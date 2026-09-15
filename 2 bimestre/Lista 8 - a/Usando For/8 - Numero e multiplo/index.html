@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero e multiplos</title>
+</head>
+<body>
+    <h1>Recebe um número e até que número fazer a tabuada dele</h1>
+    <br>
+    <label for="numero">Número que será multiplicado: </label>
+    <input type="number" id="numero" placeholder="Digite aqui">
+    <br>
+    <label for="tabuada">Até que número fazer a tabuada do anterior</label>
+    <input type="number" id="tabuada" placeholder="Digite aqui">
+    <br>
+    <button id="button" onclick="Calcular()">Calcular</button>
+    <br>
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+            let num = parseInt(document.getElementById("numero").value);
+            let tabuada = parseInt(document.getElementById("tabuada").value);
+            let resposta = Mult(num, tabuada)
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Mult(num, tabuada) {
+            let aux = "";
+            
+            for (let i = 0; i <= tabuada; i++) {
+                aux += num + " x " + i + " = " + num * i + "<br>"
+            }
+            return aux
+
+        }
+    </script>
+    
+
+</body>
+</html>

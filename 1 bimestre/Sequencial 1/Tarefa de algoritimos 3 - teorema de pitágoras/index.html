@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Calculo Hipotenusa</title>
+</head>
+<body>
+<h1>Calcular o valor da hipotenusa</h1>
+
+<label for="ValorA">Valor de A</label>
+<input type="number" id="ValorA">
+
+<br>
+
+<label for="ValorB">Valor de B</label>
+<input type="number" id="ValorB">
+
+<br>
+
+<input type="button" id="button" value="Calcular Hipotenusa" onclick= "funcaocalcularhipotenusa ()">
+
+<br>
+
+<label for="Resposta">Hipotenusa = </label>
+<span id="hipotenusa">
+
+    <script>
+        function funcaocalcularhipotenusa (){
+            let valorA= parseFloat(document.getElementById("ValorA").value)
+            let valorB= parseFloat(document.getElementById("ValorB").value)
+
+            let valorC= Math.sqrt(valorA**2 + valorB**2)
+
+            let hipotenusa = valorC
+
+            document.getElementById("hipotenusa").innerHTML = valorC
+        }
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+
+
+</html>

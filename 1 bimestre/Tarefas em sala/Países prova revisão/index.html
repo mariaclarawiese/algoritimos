@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Paises revisao</title>
+</head>
+<body>
+    <p>Destinos e países de origem possíveis: Brasil, EUA, Canadá e Argentina</p>
+
+    <label for="Origem">País de origem: </label>
+    <input type="text" id="Origem" placeholder="Digite o país de origem">
+
+    <br>
+
+    <label for="Destino">País do destino: </label>
+    <input type="text" id="Destino" placeholder="Digite o país do destino">
+
+    <Label for="mes">Mês da viagem (1 a 12): </Label>
+    <input type="number" id="mes" placeholder="Digite o mês em número">
+
+    <br>
+
+    <input type="button" id="button" value="Verificar" onclick="verificar()">
+
+    <br>
+
+    <p id="resp">As informações sairão aqui</p>
+
+    <script>
+      function hemisferio(x) {
+        let hemisferio = " ";
+        let pais = x;
+        if (pais === "Brasil" || pais === "Argentina") {
+            hemisferio = "Sul";
+        } else if (pais === "EUA" || pais === "Canadá") {
+            hemisferio = "Norte";
+        } 
+        return hemisferio
+      }
+
+      function estacao(hemisferio, mes) {
+        let estacao = " ";
+            if (hemisferio === "Sul") {
+                if (mes === 1 || mes === 2 || mes === 3) {
+                    estacao = "Verão";
+                } else if (mes === 4 || mes === 5 || mes === 6) {
+                    estacao = "Outono"
+                } else if (mes === 7 || mes === 8 || mes === 9) {
+                    estacao = "Inverno";
+                } else if (mes === 10 || mes === 11 || mes === 12) {
+                    estacao = "Primavera";
+                }
+            } else if (hemisferio === "Norte") {
+                 if (mes === 1 || mes === 2 || mes === 3) {
+                    estacao = "Inverno";
+                } else if (mes === 4 || mes === 5 || mes === 6) {
+                    estacao = "Primavera"
+                } else if (mes === 7 || mes === 8 || mes === 9) {
+                    estacao = "Verão";
+                } else if (mes === 10 || mes === 11 || mes === 12) {
+                    estacao = "Outono";
+                }
+            }
+        return estacao
+          }
+      
+       function verificar() {
+            let origem = document.getElementById("Origem").value;
+            let destino = document.getElementById("Destino").value;
+            let mes = parseInt(document.getElementById("mes").value);
+
+            let hemisferioORIGEM = hemisferio(origem);
+            let hemisferioDESTINO = hemisferio(destino);
+
+            let estacaoORIGEM = estacao(hemisferioORIGEM, mes);
+            let estacaoDESTINO = estacao(hemisferioDESTINO, mes);   
+
+            document.getElementById("resp").innerHTML = "Você está no(a) " + origem + " que está no hemisfério " + hemisferioORIGEM + ", cuja estação é " + estacaoORIGEM + " e o destino é " + destino + ", que fica no hemisfério " + hemisferioDESTINO + " e lá a estação é " + estacaoDESTINO
+
+        }
+    </script>
+
+    
+</body>
+</html>

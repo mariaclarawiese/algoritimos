@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operacoes na matriz</title>
+  </head>
+  <body>
+    <h1>
+      Leia uma matriz de ordem 3x4 e calcule a soma dos elementos de cada
+      coluna, a média aritmética de cada linha e a soma de todos os elementos
+      presentes na matriz.
+    </h1>
+
+    <label for="num">Números um por um para adicionar na matriz</label>
+    <input type="number" id="num" />
+
+    <br />
+    <br />
+
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="ExibirMatriz()">Exibir Matriz</button>
+    <button onclick="SomaColuna()">Soma de cada coluna</button>
+    <button onclick="SomaTudo()">Soma de tudo</button>
+    <button onclick="MediaLinha()">Média aritimética de cada linha</button>
+
+    <br />
+
+    <p id="exibido"></p>
+
+    <br /><br />
+
+    <p id="soma"></p>
+
+    <br /><br />
+
+    <p id="tudo"></p>
+
+    <br /><br />
+
+    <p id="media"></p>
+
+    <script>
+      let matriz = [];
+      const linha = 3;
+      const coluna = 4;
+
+      function Matriz() {
+        for (let i = 0; i < linha; i++) {
+          matriz[i] = [];
+          for (let j = 0; j < coluna; j++) {
+            matriz[i][j] = 0;
+          }
+        }
+        return matriz;
+      }
+
+      let i = 0;
+      let j = 0;
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (matriz.length == 0) {
+          Matriz();
+        }
+
+        if (j >= coluna) {
+          j = 0;
+          i++;
+        }
+
+        if (i == linha) {
+          alert("O vetor está cheio");
+          return;
+        }
+
+        matriz[i][j] = num;
+        j++;
+      }
+
+      function ExibirMatriz() {
+        let aux = " ";
+
+        for (let i = 0; i < linha; i++) {
+          for (let j = 0; j < coluna; j++) {
+            aux += matriz[i][j] + " ";
+          }
+          aux += "<br>";
+        }
+
+        document.getElementById("exibido").innerHTML = aux;
+      }
+
+      function SomaColuna() {
+        let aux = "";
+        for (j = 0; j < coluna; j++) {
+          let soma = 0;
+
+          for (let i = 0; i < linha; i++) {
+            soma += matriz[i][j];
+          }
+          aux += "Soma da coluna " + (j + 1) + " é " + soma + "<br>";
+        }
+        document.getElementById("soma").innerHTML = aux;
+      }
+
+      function SomaTudo() {
+        let soma = 0;
+
+        for (let i = 0; i < linha; i++) {
+          for (let j = 0; j < coluna; j++) {
+            soma += matriz[i][j];
+          }
+        }
+        document.getElementById("tudo").innerHTML = soma;
+      }
+
+      function MediaLinha() {
+        let aux = "";
+        for (let i = 0; i < linha; i++) {
+          let soma = 0;
+
+          for (let j = 0; j < coluna; j++) {
+            soma += matriz[i][j];
+          }
+
+          let media = soma / coluna;
+
+          aux += "Média da linha " + (i + 1) + " é " + media + "<br>";
+        }
+        document.getElementById("media").innerHTML = aux;
+      }
+    </script>
+  </body>
+</html>

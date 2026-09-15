@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Graus para Fahrenheit</title>
+</head>
+<body>
+    <h1>Converter real para dolar, dolar a 4.98</h1>
+    
+    <label for="reais">Moeda (em reais): </label>
+    <input type="number" id="reais" placeholder="Digite o valor aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Converter" onclick="Converter ()">
+
+    <p id="resultado"></p>
+
+    <script>
+        function Converter () {
+            let real = parseFloat(document.getElementById("reais").value)
+
+            let dolar = 5
+
+            let result = real * dolar
+
+            document.getElementById("resultado").innerHTML = result
+        }
+    </script>
+
+</body>
+</html>

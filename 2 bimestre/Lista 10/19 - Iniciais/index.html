@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciais</title>
+  </head>
+  <body>
+    <label for="Nome">Nome: </label>
+    <input type="text" id="Nome" />
+    <br />
+    <button onclick="Calcular()">Iniciais</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let nome = document.getElementById("Nome").value;
+        let resposta = Iniciais(nome);
+
+        document.getElementById("resp").innerHTML = resposta
+      }
+
+      function Iniciais(nome) {
+        let aux = " ";
+        let vetor = nome.split(" ");
+
+        for (let i = 0; i < vetor.length; i++) {
+          if (
+            vetor[i].toLowerCase() !== "e" ||
+            vetor[i].toLowerCase() !== "do" ||
+            vetor[i].toLowerCase() !== "da" ||
+            vetor[i].toLowerCase() !== "dos" ||
+            vetor[i].toLowerCase() !== "das" ||
+            vetor[i].toLowerCase() !== "de" ||
+            vetor[i].toLowerCase() !== "di" ||
+            vetor[i].toLowerCase() !== "du"
+          ) {
+            aux += vetor[i][0].toUpperCase();
+          }
+        }
+        return aux;
+      }
+    </script>
+  </body>
+</html>

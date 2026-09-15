@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Porcentagem e real</title>
+</head>
+
+<body>
+
+<h1>Subtrair o valor da porcentagem dos reais</h1>
+
+<label for="real">Digite o valor em reais: </label>
+<input type="number" id="real" placeholder="Digite o valor aqui">
+
+<br>
+
+<label for="porcentagem">Digite a porcentagem aqui: </label>
+<input type="number" id="porcentagem" placeholder="Digite o valor aqui">
+
+<br>
+
+<input type="button" id="button" value="Calcular" onclick="calcular ()">
+
+<br>
+
+<label for="resultado"> </label>
+<span id="resultado"></span>
+
+<script>
+function calcular () {
+    let real = parseFloat(document.getElementById("real").value);
+    let porcentagem = parseFloat (document.getElementById("porcentagem").value);
+
+    let resultado = real - (real * (porcentagem / 100)); 
+
+    document.getElementById("resultado").innerText = "O resultado é: " + resultado 
+
+}
+
+</script>
+
+
+</body>
+
+</html>

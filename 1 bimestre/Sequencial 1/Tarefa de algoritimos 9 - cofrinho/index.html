@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Cofrinho</title>
+</head>
+
+<body>
+
+<h1>Calcular quantia em reais no cofre de moedas</h1>
+
+<br>
+
+<label for="moeda1c">Quantidade de moedas de 1 centavo: </label>
+<input type="number" id="moeda1c">
+
+<br>
+
+<label for="moeda5c">Quantidade de moedas de 5 centavos: </label>
+<input type="number" id="moeda5c">
+
+<br>
+
+<label for="moeda10c">Quantidade de moedas de 10 centavos: </label>
+<input type="number" id="moeda10c">
+
+<br>
+
+<label for="moeda25c">Quantidade de moedas de 25 centavos: </label>
+<input type="number" id="moeda25c">
+
+<br>
+
+<label for="moeda50c">Quantidade de moedas de 50 centavos: </label>
+<input type="number" id="moeda50c">
+
+<br>
+
+<label for="moeda1r">Quantidade de moedas de 1 real: </label>
+<input type="number" id="moeda1r">
+
+<br>
+
+<input type="button" id="button" value="Calcular" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="resposta">Quantidade, em reais, de moedas: </label>
+<span id="resposta"></span>
+
+
+<script>
+function funcaocalcular () {
+
+    let moeda1c= parseFloat(document.getElementById("moeda1c").value)
+    let moeda5c = parseFloat(document.getElementById("moeda5c").value)
+    let moeda10c = parseFloat(document.getElementById("moeda10c").value)
+    let moeda25c = parseFloat(document.getElementById("moeda25c").value)
+    let moeda50c = parseFloat(document.getElementById("moeda50c").value)
+    let moeda1r= parseFloat(document.getElementById("moeda1r").value)
+
+
+    let moeda001r = (moeda1c * 1 / 100)
+    let moeda005r = (moeda5c * 5 / 100)
+    let moeda01r = (moeda10c * 10 / 100)
+    let moeda025r = (moeda25c * 25 / 100)
+    let moeda05r = (moeda50c * 50 / 100)
+    let moeda1real = (moeda1r * 1)
+
+    let resposta = (moeda001r + moeda005r + moeda01r + moeda025r + moeda05r + moeda1real)
+
+    document.getElementById("resposta").innerHTML = resposta
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>

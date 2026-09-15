@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos e parcelas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="ValorProduto">Valor do produto: </label>
+    <input type="number" id="ValorProduto">
+    <br>
+    <label for="Juros">Taxa de juros mensal (em %): </label>
+    <input type="number" id="Juros">
+    <br>
+    <label for="Meses">Quantidade de meses para o pagamento: </label>
+    <input type="number" id="Meses">
+    <br>
+    <input type="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <p id="resp"> </p>
+
+    <script>
+        function Calcular() {
+            let produto = parseFloat(document.getElementById("ValorProduto").value);
+            let porcentagem = parseFloat(document.getElementById("Juros").value);
+            let parcelas = parseInt(document.getElementById("Meses").value);
+
+            let final = Juros(p1, p2, p3);
+
+            document.getElementById("resp").innerHTML = "valor total a ser pago com os juros aplicados é de " + final + " R$ e o valor de cada parcela é de " + + " R$"
+        }
+        
+        function Juros(p1, p2, p3) {
+            let aux 
+        }
+
+    </script>
+    
+</body>
+</html>

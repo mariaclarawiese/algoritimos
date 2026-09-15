@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Piscina</title>
+</head>
+<body>
+<h1>Medidas da piscina para calcular volume </h1>
+
+    <label for="largura">Largura da piscina (em metros): </label>
+    <input type="number" id="largura" placeholder="Digite o valor aqui">
+
+    <br>
+
+    <label for="comprimento">Comprimento da piscina (em metros): </label>
+    <input type="number" id="comprimento" placeholder="Digite o valor aqui">
+
+    <br>
+
+    <label for="profundidade">Profundidade da piscina (em metros): </label>
+    <input type="number" id="profundidade" placeholder="Digite o valor aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="calcular()">
+
+    <br>
+
+    <p id="Resposta">O volume é: </p>
+
+    <script>
+        function calcular() {
+            let largura = parseFloat(document.getElementById("largura").value)
+            let comprimento = parseFloat(document.getElementById("comprimento").value)
+            let profundidade = parseFloat(document.getElementById("profundidade").value)
+
+            let volume = largura * comprimento * profundidade
+
+            let resp = volume * 1000
+
+            document.getElementById("Resposta").innerHTML = resp + " litros"
+        }
+
+    </script>
+
+
+
+
+    
+</body>
+</html>

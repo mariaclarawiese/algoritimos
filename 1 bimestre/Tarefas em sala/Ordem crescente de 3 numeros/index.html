@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ordem crescente</title>
+</head>
+<body>
+    <h1>Ordem crescente de 3 números</h1>
+
+    <label for="n1">Primeiro número: </label>
+    <input type="number" id="n1" placeholder="Digite o número aqui">
+
+    <br>
+
+    <label for="n2">Segundo número: </label>
+    <input type="number" id="n2" placeholder="Digite o número aqui">
+
+    <br>
+
+    <label for="n3">Terceiro número: </label>
+    <input type="number" id="n3" placeholder="Digite o número aqui">
+
+    <br>
+
+    <input type="button" value="Calcular" id="button" onclick="Calcular()">
+
+    <br>
+
+    <span id="Menor">Menor: </span>
+    <span id="Meio">Meio: </span>
+    <span id="Maior">Maior: </span>
+
+    <script>
+        function Calcular() {
+            let n1 = parseFloat(document.getElementById("n1").value);
+            let n2 = parseFloat(document.getElementById("n2").value);
+            let n3 = parseFloat(document.getElementById("n3").value);
+
+            let maior = " "
+            let meio = " "
+            let menor = " "
+
+            if (n1 > n2 && n1 > n3) {
+                maior = n1
+            } else if (n2 > n1 && n2 > n3) {
+                maior = n2
+            } else {
+                maior = n3
+            }
+
+            if (n1 > n2 && n1 < n3) {
+            meio = n1
+            } else if (n1 > n3 && n1 < n2) {
+            meio = n1
+            } else if (n2 > n1 && n2 < n3) {
+            meio = n2
+            } else if (n2 > n3 && n2 < n1) {
+            meio = n2
+            } else {
+            meio = n3
+            }
+
+            if (n1 < n2 && n1 < n3) {
+                menor = n1
+            } else if (n2 < n1 && n2 < n3) {
+                menor = n2
+            } else {
+                menor = n3
+            }
+         
+            document.getElementById("Menor").innerHTML = "Menor: " + menor
+            document.getElementById("Meio").innerHTML = "Meio: " + meio
+            document.getElementById("Maior").innerHTML = "Maior: " + maior
+        }
+    </script>
+
+
+</body>
+</html>

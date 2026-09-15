@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Comissao</title>
+</head>
+
+<body>
+<h1>Calcular salário com comissão de 4% sobre vendas</h1>
+
+<br>
+
+<label for="salario">Sálario ganho: </label>
+<input type="number" id="salario">
+
+<br>
+
+<label for="vendas">Valor das vendas: </label>
+<input type="number" id="vendas">
+
+<br>
+
+<input type="button" id="button" value="Calcular" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="resposta">Salário final: </label>
+<span id="resposta"></span>
+
+
+<script>
+function funcaocalcular () {
+
+    let salario= parseFloat(document.getElementById("salario").value)
+    let vendas= parseFloat(document.getElementById("vendas").value)
+
+    let vendasfinal = (vendas * 0.04)
+    let salariofinal = (vendasfinal + salario)
+
+    document.getElementById("resposta").innerHTML = salariofinal
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

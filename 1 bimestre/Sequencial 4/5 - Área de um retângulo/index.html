@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Area retangulo</title>
+</head>
+<body>
+    <h1>Área de um retângulo</h1>
+
+    <label for="comprimento">Valor do comprimento: </label>
+    <input type="number" id="comprimento">
+
+    <br>
+
+    <label for="altura">Valor da altura: </label>
+    <input type="number" id="altura">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="calcular ()">
+
+    <p id="result"></p>
+
+    <script>
+        function calcular () {
+            let altura = parseFloat(document.getElementById("altura").value)
+            let comprimento = parseFloat(document.getElementById("comprimento").value)
+
+            let area = comprimento * altura 
+
+            document.getElementById("result").innerHTML = area
+        }
+    </script>
+
+
+    
+</body>
+</html>

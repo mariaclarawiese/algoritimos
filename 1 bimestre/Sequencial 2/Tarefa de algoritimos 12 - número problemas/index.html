@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Problemas numero</title>
+</head>
+<body>
+    <h1>Ler o número e calcular ele ao quadrado, ao cubo e raiz quadrada e cúbica</h1>
+    
+    <label for="numero">Número: </label>
+    <input type="number" id="numero" placeholder="Digite o número aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+
+    <p id="quadrado">Elevado ao quadrado: </p>
+    <p id="cubo">Elevado ao cubo: </p>
+    <p id="raiz2">Raiz quadrada: </p>
+    <p id="raiz3">Raiz cúbica: </p>
+
+    <script>
+        function Calcular() {
+            let numero = parseFloat(document.getElementById("numero").value)
+             
+            let nquadrado 
+            let ncubo
+            let nraiz2
+            let nraiz3
+
+            if (numero <= 0) {
+                nquadrado = "Erro, não pode ser negativo ou 0"
+                ncubo = "Erro, não pode ser negativo ou 0"
+                nraiz2 = "Erro, não pode ser negativo ou 0"
+                nraiz3 = "Erro, não pode ser negativo ou 0"
+            } else {
+                nquadrado = numero ** 2
+                ncubo = numero ** 3
+                nraiz2 = Math.sqrt(numero)
+                nraiz3 = Math.cbrt(numero)
+            }
+
+            document.getElementById("quadrado").innerHTML = "O número " + numero + " elevado ao quadrado é: " + nquadrado
+            document.getElementById("cubo").innerHTML = "O número " + numero + " elevado ao cubo é: " + ncubo
+            document.getElementById("raiz2").innerHTML = "A raiz quadrada do número " + numero + " é " + nraiz2 
+            document.getElementById("raiz3").innerHTML = "A raiz cúbica do número " + numero + " é " + nraiz3
+        }
+    </script>
+</body>
+</html>

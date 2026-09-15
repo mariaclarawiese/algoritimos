@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Parte de numero</title>
+</head>
+<body>
+    <h1>Terça parte de um número</h1>
+
+    <label for="numero">Número: </label>
+    <input type="number" id="numero" placeholder="Digite o número aqui">
+    
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+
+    <p id="terca">   </p>
+
+    <script>
+        function Calcular() {
+            let numero = parseFloat(document.getElementById("numero").value)
+
+            let resultado 
+
+            if (numero <= 0) {
+                resultado = "Erro, não pode ser negativo ou 0"
+            } else {
+                resultado = numero / 3
+            }
+
+            document.getElementById("terca").innerHTML = "A terça parte do número " + numero + " é " + resultado
+        }
+    </script>
+
+
+</body>
+</html>

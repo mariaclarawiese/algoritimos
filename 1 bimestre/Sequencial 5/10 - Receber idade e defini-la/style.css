@@ -1,0 +1,28 @@
+input, label {
+    margin-bottom: 10px;
+}
+
+.tipos {
+    border: 3px solid black;    
+    padding: 1px 20px;    
+    display: block;    
+    width: fit-content;    
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+#titulo {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    list-style: none;
+
+}
+
+.lista {
+    padding: 0
+}
+
+.lista li {
+    margin-bottom: 2px;
+}

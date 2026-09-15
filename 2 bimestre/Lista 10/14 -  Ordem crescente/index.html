@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordem crescente</title>
+  </head>
+  <body>
+    <label for="num">Números um por um: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Adicionar()">Adicionar número</button>
+    <button onclick="Calcular()">Ordem crescente</button>
+    <br />
+    <span id="mostrar">Números: []</span>
+    <br />
+    <br />
+    <span id="resp"></span>
+
+    <script>
+      let vetor = [];
+      function Adicionar() {
+        let num = parseFloat(document.getElementById("num").value);
+        vetor.push(num);
+
+        document.getElementById("mostrar").innerHTML =
+          "Números: [" + vetor + "]";
+      }
+
+      function Calcular() {
+        let num = parseFloat(document.getElementById("num").value);
+        let resposta = Crescente(num);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Crescente() {
+        for (let i = 0; i < vetor.length - 1; i++) {
+          for (let j = 0; j < vetor.length - 1; j++) {
+            if (vetor[j] > vetor[j + 1]) {
+              let aux = vetor[j];
+              vetor[j] = vetor[j + 1];
+              vetor[j + 1] = aux;
+            }
+          }
+        }
+
+        return vetor;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somar um n inteiro</title>
+  </head>
+  <body>
+    <h1>Somar os digitos do númer inteiro. Ex: 123 (1+2+3) = 6</h1>
+    <label for="num">Número inteiro: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Calcular()">Somar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let num = parseInt(document.getElementById("num").value);
+        let resposta = Soma(num);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Soma(num) {
+        let aux = 0;
+        let sep = num.toString().split("");
+
+        for (let i = 0; i < sep.length; i++) {
+          aux += parseInt(sep[i]);
+        }
+
+        return aux;
+      }
+    </script>
+  </body>
+</html>

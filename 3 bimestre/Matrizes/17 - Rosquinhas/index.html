@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rosquinhas</title>
+  </head>
+  <body>
+    <h1>Calcular quantas Rosquinhas comeram na semana</h1>
+
+    <label for="linhas">Linhas: </label>
+    <input type="number" id="linhas" value="3" />
+
+    <br />
+    <br />
+
+    <label for="colunas">Colunas: </label>
+    <input type="number" id="colunas" value="7" />
+
+    <br />
+    <br />
+
+    <label for="num">Número(primeiro sendo domingo e último sábado): </label>
+    <input type="number" id="num" />
+
+    <br />
+    <br />
+
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="Exibir()">Exibir</button>
+    <button onclick="Donuts()">Calcular vencedor</button>
+
+    <p id="resp"></p>
+    <p id="donuts"></p>
+
+    <script>
+      let matriz = [];
+      let linhas;
+      let colunas;
+
+      function Matriz() {
+        colunas = parseInt(document.getElementById("colunas").value);
+        linhas = parseInt(document.getElementById("linhas").value);
+        for (let i = 0; i < linhas; i++) {
+          matriz[i] = [];
+
+          for (let j = 0; j < colunas; j++) {
+            matriz[i][j] = 0;
+          }
+        }
+        return matriz;
+      }
+
+      let i = 0;
+      let j = 0;
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (matriz.length == 0) {
+          Matriz();
+        }
+
+        if (j == colunas) {
+          j = 0;
+          alert("Passe para o próximo competidor");
+          i++;
+        }
+
+        if (i == linhas) {
+          alert("A matriz está cheia");
+          return;
+        }
+
+        matriz[i][j] = num;
+
+        j++;
+      }
+
+      function Exibir() {
+        let aux = " ";
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            aux += matriz[i][j] + " ";
+          }
+          aux += "<br>";
+        }
+
+        document.getElementById("resp").innerHTML = aux;
+      }
+
+      function Donuts() {
+        let maior = 0;
+
+        // Descobrir o maior número de rosquinhas
+        for (let i = 0; i < linhas; i++) {
+          let soma = 0;
+
+          for (let j = 0; j < colunas; j++) {
+            soma += matriz[i][j];
+          }
+
+          if (soma > maior) {
+            maior = soma;
+          }
+        }
+
+        // Descobrir quem teve a maior quantidade
+        let vencedor = "";
+
+        for (let i = 0; i < linhas; i++) {
+          let soma = 0;
+
+          for (let j = 0; j < colunas; j++) {
+            soma += matriz[i][j];
+          }
+
+          if (soma == maior) {
+            vencedor += "Pessoa " + (i + 1) + " ";
+          }
+        }
+
+        document.getElementById("donuts").innerHTML =
+          "Vencedor(es): " + vencedor + "<br> Com " + maior + " rosquinhas.";
+      }
+    </script>
+  </body>
+</html>

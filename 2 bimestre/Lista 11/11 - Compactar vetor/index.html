@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Compactação</title>
+</head>
+<body>
+
+<button onclick="Gerar()">Gerar Vetores</button>
+
+<p id="a"></p>
+<p id="b"></p>
+
+<script>
+
+function Gerar(){
+
+    let A=[];
+    let B=[];
+
+    for(let i=0;i<100;i++){
+
+        let numero=Math.floor(Math.random()*101)-50;
+
+        A.push(numero);
+
+        if(numero>0){
+            B.push(numero);
+        }
+
+    }
+
+    document.getElementById("a").innerHTML="Vetor A:<br>"+A;
+    document.getElementById("b").innerHTML="Vetor B:<br>"+B;
+
+}
+
+</script>
+
+</body>
+</html>

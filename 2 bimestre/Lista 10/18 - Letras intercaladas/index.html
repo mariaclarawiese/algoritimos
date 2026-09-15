@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letras intercaladas</title>
+  </head>
+  <body>
+    <label for="palavra1">Palavra 1: </label>
+    <input type="text" id="palavra1" />
+    <br />
+    <label for="palavra2">Palavra 2: </label>
+    <input type="text" id="palavra2" />
+    <br />
+    <button onclick="Calcular()">Trocar</button>
+    <br />
+    <span id="resp"></span>
+
+    <script>
+      function Calcular() {
+        let p1 = document.getElementById("palavra1").value;
+        let p2 = document.getElementById("palavra2").value;
+        let resposta = Trocar(p1, p2);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Trocar(p1, p2) {
+        let aux = "";
+        let vetor1 = p1.split("");
+        let vetor2 = p2.split("");
+
+        let maior = vetor1.length;
+        if (vetor2.length > maior) {
+          maior = vetor2.length;
+        }
+
+        for (let i = 0; i < maior; i++) {
+          if (i < vetor1.length) {
+            aux += vetor1[i];
+          }
+          if (i < vetor2.length) {
+            aux += vetor2[i];
+          }
+        }
+
+        return aux;
+      }
+    </script>
+  </body>
+</html>

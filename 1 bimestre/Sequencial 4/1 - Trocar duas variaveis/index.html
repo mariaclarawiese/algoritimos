@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trocar variaveis</title>
+</head>
+<body>
+    <h1>Trocar duas variáveis</h1>
+
+    <label for="n1">A = </label>
+    <input type="number" id="n1" placeholder="Digite o número aqui">
+
+    <br>
+
+    <label for="n2">B = </label>
+    <input type="number" id="n2" placeholder="Digite o número aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="Calcular ()">
+
+    <p id="a">A = </p>
+    <p id="b">B = </p>
+
+    <script>
+        function Calcular () {
+            let B = parseFloat(document.getElementById("n1").value)
+            let A = parseFloat(document.getElementById("n2").value)
+
+            document.getElementById("a").innerHTML = "A = " + A
+            document.getElementById("b").innerHTML = "B = " + B
+        }
+    </script>
+
+    
+</body>
+</html>

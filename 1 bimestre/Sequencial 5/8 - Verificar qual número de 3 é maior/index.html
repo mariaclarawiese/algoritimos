@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ver qual numero maior</title>
+</head>
+<body>
+    <h1>Verificar qual número dos 3 é maior</h1>
+
+    <label for="n1">Primeiro número: </label>
+    <input type="number" id="n1" placeholder="Digite o número aqui">
+
+    <br>
+
+    <label for="n2">Segundo número: </label>
+    <input type="number" id="n2" placeholder="Digite o número aqui">
+
+    <br>
+
+    <label for="n3">Terceiro número: </label>
+    <input type="number" id="n3" placeholder="Digite o número aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Verificar" onclick="calcular()">
+
+    <p id="resp"> </p>
+
+    <script>
+        function calcular() {
+            let n1 = parseFloat(document.getElementById("n1").value)
+            let n2 = parseFloat(document.getElementById("n2").value)
+            let n3 = parseFloat(document.getElementById("n3").value)
+
+            let resposta
+
+            if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+                resposta = "Digite os 3 números"
+            } else if (n1 >= n2 && n1 >= n3) {
+                resposta = "O maior número é o " + n1
+            } else if (n2 >= n1 && n2 >= n3) {
+                resposta = "O maior número é o " + n2
+            } else if (n3 >= n2 && n3 >= n1) {
+                resposta = "O maior número é o " + n3
+            }
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+    </script>
+
+    
+</body>
+</html>

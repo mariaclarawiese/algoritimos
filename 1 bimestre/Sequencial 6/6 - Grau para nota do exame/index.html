@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Graus para nota</title>
+</head>
+<body>
+    <h1>Graus para as notas do exame</h1>
+    <p>De 0 a 39 = grau F</p>
+    <p>De 40 a 49 = grau E</p>
+    <p>De 50 a 59 = grau D</p>
+    <p>De 60 a 69 = grau C</p>
+    <p>De 70 a 79 = grau B</p>
+    <p>De 80 para cima = grau A</p>
+
+    <br>
+
+    <label for="Nota">Nota: </label>
+    <input type="number" id="nota" placeholder="Digite a sua nota aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="calcular()">
+
+    <br>
+
+    <p id="resultado"> </p>
+
+    <script>
+        function calcular() {
+            let nota = parseFloat(document.getElementById("nota").value);
+            let resposta
+
+            if (isNaN(nota)) {
+                resposta = "Digite a sua nota"
+            } else if (nota < 0) {
+                resposta = "Não existe nota negativa"
+            } else if (nota >= 0 && nota <= 39) {
+                resposta = "F"
+            } else if (nota >= 40 && nota <= 49) {
+                resposta = "E"
+            } else if (nota >= 50 && nota <= 59 ) {
+                resposta = "D"
+            } else if (nota >= 60 && nota <= 69) {
+                resposta = "C"
+            } else if (nota >= 70 && nota <= 79) {
+                resposta = "B"
+            } else if (nota >= 80) {
+                resposta = "A"
+            }
+
+            document.getElementById("resultado").innerHTML = resposta
+
+        }
+    </script>
+
+    
+</body>
+</html>

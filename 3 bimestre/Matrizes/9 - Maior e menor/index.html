@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maior e menor numero</title>
+  </head>
+  <body>
+    <h1>Maior e menor número</h1>
+
+    <label for="linhas">Linhas: </label>
+    <input type="number" id="linhas" value="4" />
+
+    <br /><br />
+
+    <label for="colunas">Colunas: </label>
+    <input type="number" id="colunas" value="4" />
+
+    <br /><br />
+
+    <label for="num">Números 1 por 1: </label>
+    <input type="number" id="num" />
+
+    <br /><br />
+
+    <button onclick="Adicionar()">Adicionar a matriz</button>
+    <button onclick="Exibir()">Exibir a matriz</button>
+    <button onclick="Buscar()">Filtrar números</button>
+
+    <br /><br />
+
+    <p id="exibir"></p>
+    <p id="resp"></p>
+
+    <script>
+      let matriz = [];
+      let linhas;
+      let colunas;
+      let i = 0;
+      let j = 0;
+
+      function Matriz() {
+        linhas = parseInt(document.getElementById("linhas").value);
+        colunas = parseInt(document.getElementById("colunas").value);
+
+        for (let i = 0; i < linhas; i++) {
+          matriz[i] = [];
+          for (let j = 0; j < colunas; j++) {
+            matriz[i][j] = 0;
+          }
+        }
+        return matriz;
+      }
+
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (matriz.length == 0) {
+          Matriz();
+        }
+
+        if (j == colunas) {
+          j = 0;
+          i++;
+        }
+
+        if (i == linhas) {
+          alert("ERRO, a matriz está cheia");
+          return;
+        }
+
+        matriz[i][j] = num;
+        j++;
+      }
+
+      function Exibir() {
+        let aux = " ";
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            aux += matriz[i][j] + " ";
+          }
+          aux += "<br>";
+        }
+        document.getElementById("exibir").innerHTML = aux;
+      }
+
+      function Buscar() {
+        let maior = matriz[0][0];
+
+        let menor = matriz[0][0];
+
+        let posmaior = "";
+
+        let posmenor = "";
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            if (matriz[i][j] < menor) {
+              menor = matriz[i][j];
+
+              posmenor =
+                ", que está na linha " + (i + 1) + " coluna " + (j + 1);
+            }
+
+            if (matriz[i][j] > maior) {
+              maior = matriz[i][j];
+
+              posmaior =
+                ", que está na linha " + (i + 1) + " coluna " + (j + 1);
+            }
+          }
+        }
+
+        document.getElementById("resp").innerHTML =
+          "Maior número: " +
+          maior +
+          posmaior +
+          "<br>" +
+          "Menor número: " +
+          menor +
+          posmenor;
+      }
+    </script>
+  </body>
+</html>

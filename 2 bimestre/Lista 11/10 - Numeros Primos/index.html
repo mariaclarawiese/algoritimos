@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Primos</title>
+  </head>
+  <body>
+    <input type="number" id="num" />
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="Calcular()">Ver Primos</button>
+
+    <p id="vetor">Vetor K: []</p>
+    <p id="resp"></p>
+
+    <script>
+      let K = [];
+
+      function Adicionar() {
+        if (K.length >= 15) {
+          alert("Máximo de 15 números.");
+          return;
+        }
+
+        let numero = Number(document.getElementById("num").value);
+
+        K.push(numero);
+
+        document.getElementById("vetor").innerHTML = "Vetor K: [" + K + "]";
+      }
+
+      function Calcular() {
+        let P = [];
+
+        for (let i = 0; i < K.length; i++) {
+          let primo = true;
+
+          if (K[i] < 2) {
+            primo = false;
+          } else {
+            for (let j = 2; j < K[i]; j++) {
+              if (K[i] % j == 0) {
+                primo = false;
+              }
+            }
+          }
+
+          if (primo) {
+            P.push(K[i]);
+          }
+        }
+
+        if (P.length == 0) {
+          document.getElementById("resp").innerHTML = "Vetor P ficou vazio.";
+        } else {
+          document.getElementById("resp").innerHTML = "Vetor P: [" + P + "]";
+        }
+      }
+    </script>
+  </body>
+</html>

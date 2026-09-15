@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagrama</title>
+  </head>
+  <body>
+    <label for="p1">Primeira palavra: </label>
+    <input type="text" id="p1" />
+    <br />
+    <label for="p2">Segunda palavra: </label>
+    <input type="text" id="p2" />
+    <br />
+    <button onclick="Calcular()">Verificar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let p1 = document.getElementById("p1").value;
+        let p2 = document.getElementById("p2").value;
+        let resposta = Anagrama(p1, p2);
+
+        if (resposta === true) {
+            resposta = "É anagrama"
+        } else {
+            resposta = "Não é anagrama"
+        }
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Anagrama(p1, p2) {
+        if (p1.length != p2.length) {
+          return ;
+        }
+
+        let v1 = p1.toLowerCase().split("");
+        let v2 = p2.toLowerCase().split("");
+
+        for (let i = 0; i < v1.length; i++) {
+          let cont1 = 0;
+          let cont2 = 0;
+
+          for (let j = 0; j < v1.length; j++) {
+            if (v1[j] == v1[i]) {
+              cont1++;
+            }
+
+            if (v2[j] == v1[i]) {
+              cont2++;
+            }
+          }
+
+          if (cont1 != cont2) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

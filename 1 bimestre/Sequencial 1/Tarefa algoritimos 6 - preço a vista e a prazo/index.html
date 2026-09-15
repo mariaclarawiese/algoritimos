@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Calculo preco</title>
+</head>
+
+<body>
+<h1>Calcular preço á vista e á prazo</h1>
+<p>á vista com desconto de 10% e á prazo com acrescimo de 5% </p>
+
+<br>
+
+<label for="preco">Preço do produto:</label>
+<input type="number" id="preco">
+
+<br>
+
+<input type="button" id="button" value="Calcular" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="avista">Á vista: </label>
+<span id="avista"></span>
+
+<br>
+
+<label for="aprazo">Á prazo: </label>
+<span id="aprazo"></span>
+
+<script>
+function funcaocalcular () {
+    let preco = parseFloat(document.getElementById("preco").value)
+
+    let avista = (preco * 0.9 )
+    let aprazo = (preco * 1.05)
+
+    document.getElementById("avista").innerHTML = avista
+    document.getElementById("aprazo").innerHTML = aprazo
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

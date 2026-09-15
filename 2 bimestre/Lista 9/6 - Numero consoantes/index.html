@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero consoantes</title>
+</head>
+<body>
+    <h1>Conta o número de consoantes em uma string</h1> 
+    <br>
+    <label for="frase">Frase: </label>
+    <input type="text" id="frase">
+    <br>
+    <button onclick="Calcular()">Contar</button>
+    <br>
+    <span id="resp"> </span>
+    <br>
+
+    <script>
+        function Calcular() {
+            let frase = document.getElementById("frase").value;
+            let resposta = Contar(frase) + " consoantes";
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Contar(frase) {
+            let aux = 0
+
+            for (let i = 0; i < frase.length; i++) {
+                if (frase[i] === " ") {
+                    aux = aux
+                } else if (frase[i].toLowerCase() !== "a" && frase[i].toLowerCase() !== "e" && frase[i].toLowerCase() !== "i" && frase[i].toLowerCase() !== "o" && frase[i].toLowerCase() !== "u") {
+                    aux += 1
+                } 
+            }
+            return aux
+        }
+    </script>
+    
+</body>
+</html>

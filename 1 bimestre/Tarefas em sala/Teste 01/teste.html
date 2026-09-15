@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for="numero">Numero</label>
+<input type="number" id="numero">
+
+<br>
+<br>
+
+<input type="button" value="Acumular" onclick="acumular()">
+
+<p id="resp">Acumulador: </p>
+
+<script>
+    let total = 0
+
+    function acumular() {
+        let n = parseFloat(document.getElementById("numero").value)
+
+        total = total + n
+
+        document.getElementById("resp").innerHTML = "Acumulador: " + total
+    }
+
+</script>
+
+
+</body>
+</html>
+
+

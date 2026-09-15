@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <label for="linhas">Linhas: </label>
+    <input type="number" id="linhas" />
+
+    <br /><br />
+
+    <label for="colunas">Colunas: </label>
+    <input type="number" id="colunas" />
+
+    <br /><br />
+
+    <label for="num">Números um por um: </label>
+    <input type="number" id="num" />
+
+    <button onclick="Adicionar()">Adicionar e Exibir</button>
+
+    <br /><br />
+
+    <label for="numMedia">Linha para descobrir a média dela: </label>
+    <input type="number" id="numMedia" />
+
+    <button onclick="MediaLinha()">Média aritimética</button>
+
+    <br /><br />
+
+    <label for="Mult1">Multiplicar 1</label>
+    <input type="number" id="Mult1i" placeholder="posição i" />
+    <input type="number" id="Mult1j" placeholder="posição j" />
+    <br />
+    <label for="Mult2">Multiplicar 2</label>
+    <input type="number" id="Mult2i" placeholder="posição i" />
+    <input type="number" id="Mult2j" placeholder="posição j" />
+    <button onclick="Multiplicar()">Multiplicar 2 números</button>
+
+    <br /><br />
+
+    <label for="buscado">Elemento a ser procurado: </label>
+    <input type="number" id="buscado" />
+    <button onclick="Buscar()">Buscar um elemento</button>
+
+    <br /><br />
+
+    <label for="contado">Elemento a ser contado: </label>
+    <input type="number" id="contado" />
+    <button onclick="Contagem()">Contagem de um elemento</button>
+
+    <br /><br />
+
+    <label for="posicao">Elemento a ser buscado a primeira posição: </label>
+    <input type="number" id="posicao" />
+    <button onclick="PPosicao()">Primeira posição de um elemento</button>
+
+    <br /><br />
+
+    <label for="todasP">Todas as posições de um elemento: </label>
+    <input type="number" id="todasP" />
+    <button onclick="TPosicoes()">Todas as posições de um elemento</button>
+
+    <br /><br />
+
+    <button onclick="SomarM()">Somar todos os elementos da matriz</button>
+    <br />
+    <button onclick="SomarC()">Somar todos os elementos de uma coluna</button>
+    <br />
+    <button onclick="Pares()">Números pares</button>
+    <br />
+    <button onclick="Primos()">Números primos</button>
+    <br />
+    <button onclick="MaioE()">Maior elemento da matriz</button>
+    <br />
+    <button onclick="ParImpar()">Pares e Ímpares</button>
+
+    <br /><br />
+
+    <p id="exibir"></p>
+
+    <p id="MediaLinha"></p>
+
+    <p id="multiplic"></p>
+
+    <p id="buscar"></p>
+
+    <p id="contar"></p>
+
+    <p id="Pposicao"></p>
+
+    <p id="todas"></p>
+
+    <script>
+      let matriz = [];
+      let linhas;
+      let colunas;
+      let i = 0;
+      let j = 0;
+
+      function Matriz() {
+        linhas = parseInt(document.getElementById("linhas").value);
+        colunas = parseInt(document.getElementById("colunas").value);
+
+        for (let i = 0; i < linhas; i++) {
+          matriz[i] = [];
+          for (let j = 0; j < colunas; j++) {
+            matriz[i][j] = 0;
+          }
+        }
+        return matriz;
+      }
+
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (matriz.length == 0) {
+          Matriz();
+        }
+
+        if (j == colunas) {
+          j = 0;
+          i++;
+        }
+
+        if (i == linhas) {
+          alert("ERRO, a matriz está cheia");
+        }
+
+        matriz[i][j] = num;
+        j++;
+
+        let aux = " ";
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            aux += matriz[i][j] + " ";
+          }
+          aux += "<br>";
+        }
+        document.getElementById("exibir").innerHTML = aux;
+      }
+
+      function MediaLinha() {
+        let soma = 0;
+        let numMedia = parseInt(document.getElementById("numMedia").value);
+
+        for (let j = 0; j < colunas; j++) {
+          soma += matriz[numMedia - 1][j];
+        }
+
+        let resp = soma / colunas;
+
+        document.getElementById("MediaLinha").innerHTML = resp;
+      }
+
+      function Multiplicar() {
+        let i1 = parseInt(document.getElementById("Mult1i").value);
+        let j1 = parseInt(document.getElementById("Mult1j").value);
+        let i2 = parseInt(document.getElementById("Mult2i").value);
+        let j2 = parseInt(document.getElementById("Mult2j").value);
+
+        let num1 = matriz[i1][j1];
+        let num2 = matriz[i2][j2];
+
+        let mult = num1 * num2;
+
+        document.getElementById("multiplic").innerHTML =
+          matriz[i1][j1] + " X " + matriz[i2][j2] + " = " + mult;
+      }
+
+      function Buscar() {
+        let buscado = parseInt(document.getElementById("buscado").value);
+
+        let resp = "";
+        let achou = false;
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            if (matriz[i][j] == buscado) {
+              resp =
+                "O elemento " +
+                buscado +
+                " está na linha " +
+                (i + 1) +
+                " e na coluna " +
+                (j + 1);
+
+              achou = true;
+
+              break;
+            }
+          }
+
+          if (achou == true) {
+            break;
+          }
+        }
+
+        if (achou == true) {
+          document.getElementById("buscar").innerHTML = resp;
+        } else {
+          resp = "O elemento " + buscado + " não existe na matriz";
+
+          document.getElementById("buscar").innerHTML = resp;
+        }
+      }
+
+      function Contagem() {
+        let cont = 0;
+        let num = parseInt(document.getElementById("contado").value);
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            if (matriz[i][j] == num) {
+              cont++;
+            }
+          }
+        }
+
+        let resp = " ";
+
+        if (cont == 1) {
+          resp = "O número " + num + " apareceu " + cont + " vez na matriz";
+        } else if (cont == 0) {
+          resp = "O número não apareceu na matriz";
+        } else {
+          resp = "O número " + num + " apareceu " + cont + " vezes na matriz";
+        }
+
+        document.getElementById("contar").innerHTML = resp;
+      }
+
+      function PPosicao() {
+        let num = parseInt(document.getElementById("posicao").value);
+        let resp = " "
+
+        for (let i = 0; i < linhas; i++) {
+            for (let j = 0; j < colunas; j++) {
+                if (matriz[i][j] == num) {
+                    resp = "A primeira posição encontrada do número " + num + " é na linha " + (i+1) + " e na coluna " + (j+1)
+                     document.getElementById("Pposicao").innerHTML = resp;
+                    return
+                }
+            }
+        }
+      }
+      
+      function TPosicoes() {
+        let num = parseInt(document.getElementById("todasP").value);
+        let resp = " ";
+
+        for (let i = 0; i < linhas; i++) {
+            for (let j = 0;j < colunas; j++) {
+                if (matriz[i][j] == num) {
+                    resp += "Linha " + (i+1) + " e coluna " + (j+1) + "<br>"
+                }
+            }
+        }
+        document.getElementById("todas").innerHTML = resp;
+      }
+
+      function SomarM() {
+        
+      }
+    </script>
+  </body>
+</html>

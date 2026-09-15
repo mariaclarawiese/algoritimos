@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome ao contrario</title>
+</head>
+<body>
+    <h1>Le um nome e um sobrenome e escrever esses nomes 10 vezes alternando a ordem</h1>
+    <br>
+    <label for="nome">Nome e sobrenome: </label>
+    <input type="text" id="nome">
+    <br>
+    <button onclick="Fazer()">Alternar</button>
+    <br>
+    <span id="resp"> </span>
+    
+    <script>
+        function Fazer() {
+            let nome = document.getElementById("nome").value;
+            let resposta = Troca(nome)
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Troca(nome) {
+            let aux = "";
+            let separado = nome.split(" ");
+            let nome1 = separado[0];
+            let sobrenome = separado[1];
+
+            for (let i = 0; i < 10; i++) {
+                if (i % 2 == 0) {
+                    aux += nome1 + " " + sobrenome + "<br>"
+                } else {
+                    aux += sobrenome + " " + nome1 + "<br>"
+                }
+            }
+            return aux
+        }
+    </script>
+
+</body>
+</html>

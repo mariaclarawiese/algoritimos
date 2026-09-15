@@ -1,0 +1,32 @@
+label, input {
+    margin-bottom: 10px;
+}
+
+#button {
+    padding: 10px;
+    width: 150px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    border: 10px solid red;
+    border-radius: 10px; /*arredonda a borda*/
+    border-width: 3px;
+    font-size: 16px;
+    text-align: center;
+}
+
+input[type="number"] {
+    width: 100px;             /* largura da caixinha */
+    height: 10px;             /* altura da caixinha */
+    padding: 5px 10px;        /* espaço interno do numero cima/baixo e esquerda/direita */
+    font-size: 16px;          /* tamanho do texto */
+    border: 2px solid red;   
+    border-radius: 5px;       /* cantos arredondados */
+
+}
+
+#media {
+    font-size: 30px !important;
+}
+
+

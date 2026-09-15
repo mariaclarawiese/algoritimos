@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Loteria</title>
+  </head>
+  <body>
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome" />
+    <br /><br />
+
+    <label for="endereco">Endereço: </label>
+    <input type="text" id="endereco" />
+    <br /><br />
+
+    <label for="resposta">Resposta: </label>
+    <input type="number" id="resposta" />
+
+    <button onclick="Adicionar()">Adicionar resposta</button>
+
+    <button onclick="Calcular()">Conferir</button>
+
+    <p id="vetor"></p>
+
+    <p id="resp"></p>
+
+    <h1 id="ganhador"></h1>
+
+    <script>
+      const gabarito = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1];
+
+      let aposta = [];
+
+      function Adicionar() {
+        if (aposta.length >= 13) {
+          alert("Digite somente 13 respostas.");
+          return;
+        }
+
+        let numero = parseInt(document.getElementById("resp").value);
+
+        aposta.push(numero);
+
+        document.getElementById("vetor").innerHTML = aposta;
+      }
+
+      function Calcular() {
+        if (aposta.length < 13) {
+          alert("Digite as 13 respostas.");
+          return;
+        }
+
+        let acertos = 0;
+
+        for (let i = 0; i < 13; i++) {
+          if (aposta[i] == gabarito[i]) {
+            acertos++;
+          }
+        }
+
+        let nome = document.getElementById("nome").value;
+        let endereco = document.getElementById("endereco").value;
+
+        document.getElementById("resp").innerHTML =
+          "Nome: " +
+          nome +
+          "<br>Endereço: " +
+          endereco +
+          "<br>Acertos: " +
+          acertos;
+
+        if (acertos == 13) {
+          document.getElementById("ganhador").innerHTML = "GANHADOR";
+        }
+      }
+    </script>
+  </body>
+</html>

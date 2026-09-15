@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirar espacos sobrando</title>
+  </head>
+  <body>
+    <label for="frase">Frase: </label>
+    <input type="text" id="frase" />
+    <br />
+    <button onclick="Calcular()">Tirar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let frase = document.getElementById("frase").value;
+        let resposta = Tirar(frase);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Tirar(frase) {
+        let aux = "";
+
+        for (let i = 0; i < frase.length; i++) {
+          if (frase[i] !== " " || frase[i + 1] !== " ") {
+            aux += frase[i];
+          }
+        }
+        return aux;
+      }
+    </script>
+  </body>
+</html>

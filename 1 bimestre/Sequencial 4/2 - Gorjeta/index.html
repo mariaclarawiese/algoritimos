@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gorjeta de um restaurante</title>
+</head>
+<body>
+    <h1>Gorjeta de 10% do valor total</h1>
+
+    <label for="valor">Valor total da conta: </label>
+    <input type="number" id="valor" placeholder="Digite o valor aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular Gorjeta" onclick="calcular ()">
+
+    <p id="gorjeta"></p>
+
+    <script>
+        function calcular () {
+            let valor = parseFloat(document.getElementById("valor").value)
+
+            let gorjeta = valor * (10/100)
+
+            document.getElementById("gorjeta").innerHTML = "O valor que deve ser pago é " + gorjeta + "R$"
+
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Xerox condicional</title>
+</head>
+<body>
+    <h1>Xerox 25 centavos, dps de 100 folhas é 20 por unidade</h1>
+
+    <label for="folhas">Quantidade de folhas: </label>
+    <input type="number" id="folhas" placeholder="Digite a quanta aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+
+    <p id="folha"> </p>
+
+    <script>
+        function Calcular() {
+            let folhas = parseFloat(document.getElementById("folhas").value)
+            
+            let valor
+
+            if (folhas < 100) {
+                valor = 0.25
+            } else {
+                valor = 0.20
+            }
+
+             let resultado = folhas * valor 
+
+            document.getElementById("folha").innerHTML = resultado
+        }
+    </script>
+</body>
+</html>

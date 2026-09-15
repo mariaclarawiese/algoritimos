@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salario e Comissao</title>
+   <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    
+    <h1>Salário mais 4% de comissão</h1>
+
+    <label for="salario">Salário: </label>
+    <input type="number" id="salario" placeholder="Digite o valor do salário">
+
+    <br>
+
+    <label for="vendas">Valor vendas: </label>
+    <input type="number" id="vendas" placeholder="Digite o valor das vendas">
+
+    <br>
+
+    <input type="button" value="Calcular" id="button" onclick="funcaocalcular ()" >
+
+    <br>
+
+    <span id="resultado">O salário mais a comissão é: </span>
+
+    <script>
+        function funcaocalcular () {
+           
+            let salario = parseFloat(document.getElementById("salario").value)
+            let vendas = parseFloat(document.getElementById("vendas").value)
+
+            let resultado = salario + (4 / 100 * vendas)
+
+            document.getElementById("resultado").innerText = "O salário mais a comissão é: " + resultado
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+</head>
+<body>
+    <h1>Verificar se é um palíndromo</h1>
+    <br/>
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome"/>
+    <br/>
+    <button onclick="Calcular()">Verificar</button>
+    <br/>
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+    let palavra = document.getElementById("nome").value;
+    let inversa = Verificar(palavra);
+    let resposta
+
+    if (palavra.toLowerCase() === inversa.toLowerCase()) {
+        resposta = "É palíndromo, pois " + palavra + " invertida é " + inversa
+    } else {
+        resposta = "Não é palíndromo, pois " + palavra + " invertida é " + inversa
+    }
+
+    document.getElementById("resp").innerHTML = resposta;
+}
+
+    function Verificar(palavra) {
+    let aux = "";
+
+    for (let i = palavra.length - 1; i >= 0; i--) {
+        aux += palavra[i];
+    }
+
+    return aux;
+}
+    </script>
+    
+</body>
+</html>

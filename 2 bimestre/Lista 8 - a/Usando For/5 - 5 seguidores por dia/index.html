@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 seguidores por dia</title>
+</head>
+<body>
+    <h1>Um criador de conteúdo ganha 5 seguidores por dia. Usar um laço para calcular e mostrar quantos seguidores ele terá após no mínimo 30 dias (começa com 0).</h1>
+    <br>
+    <label for="dias">Dias: </label>
+    <input type="number" id="dias" value="30">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <span id="resp"> </span>
+    <br>
+
+    <script>
+        function Calcular() {
+            const dias = parseInt(document.getElementById("dias").value);
+             let resposta
+
+             if (dias < 30) {
+                alert("ERRO, no mínimo 5 dias")
+             } else {
+                resposta = Seguidores(dias) + " seguidores no final de " + dias + " dias."
+             }
+
+             document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Seguidores(dias) {
+            let aux = 0
+
+            for (let i = 1; i <= dias; i++) {
+                aux += 5
+            }
+            return aux
+        }
+    </script>
+    
+</body>
+</html>

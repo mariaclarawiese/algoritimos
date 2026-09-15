@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tipos de triangulo</title>
+</head>
+<body>
+    <h1>Tipos de triângulo com base na medida de seus lados</h1>
+
+    <label for="lado1">Medida do lado 1: </label>
+    <input type="number" id="lado1" placeholder="Digite a medida aqui">
+
+    <br>
+
+    <label for="lado2">Medida do lado 2: </label>
+    <input type="number" id="lado2" placeholder="Digite a medida aqui">
+
+    <br>
+
+    <label for="lado3">Medida do lado 3: </label>
+    <input type="number" id="lado3" placeholder="Digite a medida aqui">
+
+    <br>
+
+    <input type="button" id="button" value="Verificar" onclick="verificar()">
+
+    <br>
+
+    <p id="resp"> </p>
+
+    <script>
+        function verificar() {
+            let lado1 = parseFloat(document.getElementById("lado1").value)
+            let lado2 = parseFloat(document.getElementById("lado2").value)
+            let lado3 = parseFloat(document.getElementById("lado3").value)
+
+            let resposta
+
+            if (lado1 + lado2 <= lado3 || lado2 + lado3 <= lado1 || lado1 + lado3 <= lado2) {
+                resposta = "Essas medidas não formam um triângulo"
+            } else if (lado1 === lado2 && lado1 === lado3 && lado3 === lado2) {
+                resposta = "É um triângulo equilátero"
+            } else if (lado1 != lado2 && lado1 != lado3 && lado3 != lado2) {
+                resposta = "É um triângulo escaleno"
+            } else {
+                resposta = "É um triângulo isósceles"
+            }
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+    </script>
+    
+</body>
+</html>

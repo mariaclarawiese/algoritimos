@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordem inversa digitada</title>
+  </head>
+  <body>
+    <label for="num">Digite os números um de cada vez: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="CalcFOR()">Inverter com for</button>
+    <button onclick="CalcWHILE()">Inverter com while</button>
+    <br />
+    <br />
+    <span id="mostrar">Digitado: [ ]</span>
+    <br />
+    <br />
+    <span id="resp">Inverso: [ ]</span>
+
+    <script>
+      let vetor = [];
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (vetor.length >= 20) {
+            alert("Somente 20 números")
+            return
+        }
+
+        vetor.push(num);
+
+        document.getElementById("mostrar").innerHTML =
+          "Digitado: [" + vetor + "]";
+      }
+
+      function CalcFOR() {
+        let resposta = [];
+
+        for (let i = vetor.length - 1; i > 0; i--) {
+          resposta.push(vetor[i]);
+        }
+
+        document.getElementById("resp").innerHTML =
+          "Inverso: [" + resposta + "]";
+      }
+
+      function CalcWHILE() {
+        let resposta = [];
+        let i = vetor.length - 1;
+
+        while (i > 0) {
+          resposta.push(vetor[i]);
+          i++;
+        }
+        document.getElementById("resp").innerHTML =
+          "Inverso: [" + resposta + "]";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>dolar pra real e real pra dolar</title>
+</head>
+<body>
+    <h1>Calculo de conversão de reais para dólar e dólar para reais</h1>
+
+    <label for="cotacao">Cotação atual: </label>
+    <input type="number" id="cotacao" placeholder="Valor da cotação">
+
+    <br><br>
+
+    <label for="real">Valor em dólar: </label>
+    <input type="number" id="valorDolar" placeholder="Digite o valor em dólar">
+    <button onclick="calcular()">Calcular</button>
+    <span id="resultado"></span>
+
+    <br><br>
+
+    <label for="dolar">Valor em real: </label>
+    <input type="number" id="valorReais" placeholder="Digite o valor em reais">
+    <button onclick="calcularReais()">Calcular</button>
+    <span id="resultadoReais"></span>
+
+    <script>
+        function calcular() {
+            let valor = parseFloat(document.getElementById('valorDolar').value);
+            let cotacao = parseFloat(document.getElementById("cotacao").value);
+            
+            let resultado = valor * cotacao;
+
+            document.getElementById('valorReais').value = resultado.toFixed(2);
+        }
+
+        function calcularReais() {
+            let valor = parseFloat(document.getElementById('valorReais').value);
+            let cotacao = parseFloat(document.getElementById("cotacao").value);
+            
+            let resultado = valor / cotacao;
+
+            document.getElementById('valorDolar').value = resultado.toFixed(2);
+        }
+    </script>
+</body>
+</html>

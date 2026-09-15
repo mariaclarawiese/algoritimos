@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"/>
+    <title>acrescimo numero</title>
+</head>
+<body>
+<h1>Acrescimo em 15%</h1>
+
+<label for="numero">Número: </label>
+<input type="number" id="numero"
+placeholder="Digite o número aqui">
+
+<br>
+
+<input type="button" id="button" value="Calcular" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="resposta">Resposta: </label>
+<span id="resposta"></span>
+
+<script>
+    function funcaocalcular () {
+
+        let numero= parseFloat(document.getElementById("numero").value)
+
+        let resposta= (numero * 115 / 100)
+
+        document.getElementById("resposta").innerHTML = resposta
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+    
+</body>
+</html>

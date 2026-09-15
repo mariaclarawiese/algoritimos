@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numeros pares em vetor</title>
+  </head>
+  <body>
+    <label for="num">Números um por vez: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="Calcular()">Calcular</button>
+    <br />
+    <span id="mostrar">Números: [ ]</span>
+    <br />
+    <br />
+    <span id="resp"></span>
+
+    <script>
+      let vetor = [];
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (vetor.length > 20) {
+          alert("Digite apenas 20 números");
+        }
+
+        vetor.push(num);
+
+        document.getElementById("mostrar").innerHTML =
+          "Números: [" + vetor + "]";
+      }
+
+      function Calcular() {
+        let resposta = Pares();
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Pares() {
+        let aux = " ";
+
+        for (let i = 0; i < vetor.length; i++) {
+          if (vetor[i] % 2 === 0) {
+            aux += vetor[i] + ", ";
+          }
+        }
+        return aux;
+      }
+    </script>
+  </body>
+</html>

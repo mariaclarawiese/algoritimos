@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura</title>
+</head>
+<body>
+    <label for="ISBN">ISBN ("CPF do livro"): </label>
+    <input type="number" id="ISBN" />
+
+    <label for="Titulo">Título: </label>
+    <input type="text" id="Titulo" />
+
+    <label for="Autor">Autor: </label>
+    <input type="text" id="Autor" />
+
+    <label for="AnoPublic">Ano de publicação: </label>
+    <input type="number" id="AnoPublic" />
+
+    <label for="Preco">Preço: </label>
+    <input type="number" id="Preco" />
+    <br />
+
+    <script src="livros.js"></script>
+
+    <button onclick="Adicionar()">Cadastrar Livro</button>
+    <button onclick="ExibirTudo()">Exibir Tudo</button>
+    <button onclick="Titulos()">Exibir Titulos</button>
+    <br>
+    <input type="number" id="ano" />
+    <button onclick="Ano()">Filtrar Ano</button>
+
+    <br>
+    <span id="resp"></span>
+
+    <script>
+        let listaLivros = []
+
+        function Adicionar() {
+            let ISBN = document.getElementById("ISBN").value;
+            let Titulo = document.getElementById("Titulo").value
+            let Autor = document.getElementById("Autor").value
+            let AnoPublic = document.getElementById("AnoPublic").value
+            let Preco = document.getElementById("Preco").value
+
+            let l = new Livro (ISBN, Titulo, Autor, AnoPublic, Preco)
+            listaLivros.push(l)
+        }
+
+        function ExibirTudo() {
+            let tudo = " "
+
+            for (let i = 0; i < listaLivros.length; i++) {
+                tudo += "ISBN: " + listaLivros[i].ISBN + 
+                "<br> Título: " + listaLivros[i].Titulo + 
+                "<br> Autor: " + listaLivros[i].Autor +
+                "<br> Ano de Publicação: " + listaLivros[i].AnoPublic +
+                "<br> Preço: " + listaLivros[i].Preco + "R$" + "<br><br>"    
+            }
+            document.getElementById("resp").innerHTML =  tudo
+        }
+
+        function Titulos() {
+            let tudo = " ";
+
+            for (let i = 0; i < listaLivros.length; i++) {
+                tudo += listaLivros[i].Titulo + "<br>"
+            }
+                 document.getElementById("resp").innerHTML =  tudo
+        }
+
+        function Ano() {
+
+        }
+    </script>
+</body>
+</html>

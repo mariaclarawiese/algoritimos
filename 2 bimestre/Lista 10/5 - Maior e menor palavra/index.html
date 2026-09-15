@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maior e menor palavra</title>
+  </head>
+  <body>
+    <label for="frase">Frase: </label>
+    <input type="text" id="frase" />
+    <br />
+    <button onclick="Calcular()">Verificar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let frase = document.getElementById("frase").value;
+        let resposta = Verificar(frase);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Verificar(frase) {
+        let Vfrase = frase.split(" ");
+
+        let maior = Vfrase[0];
+        let menor = Vfrase[0];
+
+        for (let i = 1; i < Vfrase.length; i++) {
+          if (Vfrase[i].length > maior.length) {
+            maior = Vfrase[i];
+          }
+
+          if (Vfrase[i].length < menor.length) {
+            menor = Vfrase[i];
+          }
+        }
+
+        return "Maior palavra: " + maior + "<br>" + "Menor palavra: " + menor;
+      }
+    </script>
+  </body>
+</html>

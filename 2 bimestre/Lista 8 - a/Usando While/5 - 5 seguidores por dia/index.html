@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 seguidores por dia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Um criador de conteúdo ganha 5 seguidores por dia. Usar um laço para calcular e mostrar quantos seguidores ele terá após 30 dias (começa com 0).</h1>
+    <br>
+    <input type="button" value="Calcular" onclick="Seguidores()">
+    <br>
+    <p id="resp"> </p>
+    
+    <script>
+        function Seguidores() {
+            aux = 0;
+            i = 0;
+
+            while (i < 30) {
+                aux = aux + 5;
+                i++;
+            };
+
+            document.getElementById("resp").innerHTML = aux + " seguidores";
+
+        }
+    </script>
+    
+</body>
+</html>

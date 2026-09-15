@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de todos os numeros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <h1>Soma do 1 até um número inteiro positivo digitado pelo usuário</h1>
+     <br>
+    <label for="numero">Número para somar até ele: </label>
+    <input type="number" id="numero">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <p id="resp"> </p>
+    <br>
+
+    <script>
+        function Calcular() {
+            let numero = parseFloat(document.getElementById("numero").value);
+            let resposta;
+            
+            if (numero <= 0) {
+                resposta = alert("Erro, digite um número válido")
+            } else {
+                resposta = Soma(numero)
+            }
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Soma(numero) {
+          let soma = 0;
+
+         for (let i = 1; i <= numero; i++) {
+            soma += i;
+        }
+        return soma
+
+        }
+    </script>
+    
+</body>
+</html>

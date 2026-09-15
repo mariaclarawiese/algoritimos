@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagonais com numeros aleatorios</title>
+  </head>
+  <body>
+    <h1>
+      Criar uma matriz com números aleatórios e somar suas diagonais principal e
+      secundária
+    </h1>
+
+    <label for="linhas">Linhas: </label>
+    <input type="number" id="linhas" />
+
+    <br />
+    <br />
+
+    <label for="colunas">Colunas: </label>
+    <input type="number" id="colunas" />
+
+    <br /><br />
+
+    <button onclick="Exibir()">Exibir</button>
+    <button onclick="SomarP()">Somar diagonal principal</button>
+    <button onclick="SomarS()">Somar diagonal secundária</button>
+
+    <p id="exibir"></p>
+    <p id="principal"></p>
+    <p id="secundaria"></p>
+
+    <script>
+      let matriz = [];
+      let linhas;
+      let colunas;
+
+      function Matriz() {
+        colunas = parseInt(document.getElementById("colunas").value);
+        linhas = parseInt(document.getElementById("linhas").value);
+        for (let i = 0; i < linhas; i++) {
+          matriz[i] = [];
+
+          for (let j = 0; j < colunas; j++) {
+            matriz[i][j] = 0;
+          }
+        }
+        return matriz;
+      }
+
+      let i = 0;
+      let j = 0;
+
+      function Exibir() {
+        if (matriz.length == 0) {
+          Matriz();
+        }
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            matriz[i][j] = Math.floor(Math.random() * 101);
+          }
+        }
+
+        let aux = "";
+
+        for (let i = 0; i < linhas; i++) {
+          for (let j = 0; j < colunas; j++) {
+            aux += matriz[i][j] + " ";
+          }
+
+          aux += "<br>";
+        }
+
+        document.getElementById("exibir").innerHTML = aux;
+      }
+
+      function SomarP() {
+        let aux = 0
+
+        for (let i = 0; i < linhas; i++) {
+            for (let j = 0; j < colunas; j++) {
+            
+            }
+        }
+
+         for (let i = 0; i < linhas; i++) {
+                aux+= matriz[i][i] 
+        }
+
+        document.getElementById("principal").innerHTML = "Soma da diagonal principal: " + aux
+      }
+
+      function SomarS() {
+        let aux = 0;
+
+        for (let i = 0; i < linhas; i++) {
+          aux += matriz[i][colunas - 1 - i];
+        }
+
+        document.getElementById("secundaria").innerHTML = "Soma da diagonal secundária: "  + aux;
+      }
+    </script>
+  </body>
+</html>

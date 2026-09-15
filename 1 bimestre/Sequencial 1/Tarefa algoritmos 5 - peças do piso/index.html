@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Piso para ambiente</title>
+</head>
+
+<body>
+<h1>Calcular quantas peças de piso serão necessárias para um ambiente</h1>
+<p> Medidas do ambiente (em metros) </p>
+ 
+<br>
+
+<label for="ambiente1">Primeira medida do ambiente: </label>
+<input type="number" id="ambiente1">
+
+<br>
+
+<label for="ambiente2">Segunda medida do ambiente: </label>
+<input type="number" id="ambiente2">
+
+<br>
+
+<p> Medidas do piso (em centímetros) </p>
+
+<br>
+
+<label for="piso1">Primeira medida do piso: </label>
+<input type="number" id="piso1">
+
+<br>
+
+<label for="piso2">Segunda medida do piso: </label>
+<input type="number" id="piso2">
+
+<br>
+
+<input type="button" id="button" value="Calcular" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="resposta">Resposta = </label>
+<span id="resposta"></span>
+
+<script>
+function funcaocalcular () {
+    let ambiente1= parseFloat(document.getElementById("ambiente1").value)
+    let ambiente2= parseFloat(document.getElementById("ambiente2").value)
+    let piso1= parseFloat(document.getElementById("piso1").value)
+    let piso2= parseFloat(document.getElementById("piso2").value)
+
+    let ambiente= (ambiente1 * ambiente2)
+    let piso= (piso1 / 100 * piso2 / 100)
+    
+    let area1= (ambiente / piso)
+
+    let resultado= ( area1 * 1.1)
+    resultado = Math.ceil(resultado)
+
+    document.getElementById("resposta").innerHTML = resultado
+    
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

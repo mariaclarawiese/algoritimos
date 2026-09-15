@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nome formato ingles</title>
+  </head>
+  <body>
+    <label for="nome">Nome inteiro: </label>
+    <input type="text" id="nome" />
+    <br />
+    <button onclick="Calcular()">Formato inglês</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+      function Calcular() {
+        let nome = document.getElementById("nome").value;
+        let resposta = FormatoIngles(nome);
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function FormatoIngles(nome) {
+        let separado = nome.split(" ");
+        let tamanho = separado.length;
+
+        let sobrenome = separado[tamanho - 1];
+        let aux = sobrenome + ", ";
+
+        for (let i = 0; i < tamanho - 1; i++) {
+          aux += separado[i] + " ";
+        }
+
+        return aux;
+      }
+    </script>
+  </body>
+</html>

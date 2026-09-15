@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Separador de posicoes</title>
+  </head>
+  <body>
+    <label for="num">Digite os números um de cada vez: </label>
+    <input type="number" id="num" />
+    <br />
+    <button onclick="Adicionar()">Adicionar</button>
+    <button onclick="Calcular()">Separar</button>
+    <br />
+    <br />
+    <span id="mostrar">Digitado: [ ]</span>
+    <br />
+    <br />
+    <span id="resp">Vetor par: [ ] <br> Vetor impar: [ ] </span>
+
+    <script>
+      let vetor = [];
+      function Adicionar() {
+        let num = parseInt(document.getElementById("num").value);
+
+        if (vetor.length >= 10) {
+          alert("Somente 10 números");
+          return;
+        }
+
+        vetor.push(num);
+
+        document.getElementById("mostrar").innerHTML =
+          "Digitado: [" + vetor + "]";
+      }
+
+      function Calcular() {
+        let num = parseInt(document.getElementById("num").value);
+        let resposta = Posic();
+
+        document.getElementById("resp").innerHTML = resposta;
+      }
+
+      function Posic() {
+        let par = [];
+        let impar = [];
+
+        for (let i = 0; i < vetor.length; i++) {
+          if (i % 2 === 0) {
+            par.push(vetor[i]);
+          } else {
+            impar.push(vetor[i]);
+          }
+        }
+
+        return "Vetor par: [" + par + "] <br> Vetor ímpar [" + impar + "]"
+      }
+    </script>
+  </body>
+</html>

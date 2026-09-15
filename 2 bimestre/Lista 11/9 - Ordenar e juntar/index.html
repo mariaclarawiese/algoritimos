@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordenar e juntar</title>
+  </head>
+  <body>
+    <label for="num1">Números para o vetor 1</label>
+    <input type="number" id="num1" />
+    <button onclick="Adicionar1()">Adicionar ao Vetor 1</button>
+    <br />
+    <br />
+    <label for="num2">Números para o vetor 2</label>
+    <input type="number" id="num2" />
+    <button onclick="Adicionar2()">Adicionar ao Vetor 2</button>
+    <br />
+    <br />
+    <button onclick="Calcular()">Juntar e ordenar</button>
+    <br />
+    <br />
+    <span id="mostrar1">Vetor 1: [ ]</span>
+    <br />
+    <br />
+    <span id="mostrar2">Vetor 2: [ ]</span>
+    <br />
+    <br />
+    <span id="resp">Vetor novo: [ ]</span>
+
+    <script>
+      let vetor1 = [];
+      let vetor2 = [];
+
+      function Adicionar1() {
+        let num1 = parseInt(document.getElementById("num1").value);
+
+        if (vetor1.length >= 10) {
+          alert("ERRO, digite apenas 10 números");
+          return;
+        }
+
+        vetor1.push(num1);
+
+        document.getElementById("mostrar1").innerHTML =
+          "Vetor 1: [" + vetor1 + "]";
+      }
+
+      function Adicionar2() {
+        let num2 = parseInt(document.getElementById("num2").value);
+
+        if (vetor2.length >= 10) {
+          alert("ERRO, digite apenas 10 números");
+          return;
+        }
+        vetor2.push(num2);
+
+        document.getElementById("mostrar2").innerHTML =
+          "Vetor 2: [" + vetor2 + "]";
+      }
+
+      function Calcular() {
+        if (vetor1.length < 10 || vetor2.length < 10) {
+          alert("Os dois vetores devem ter 10 números.");
+          return;
+        }
+        let resposta = Ordem();
+
+        document.getElementById("resp").innerHTML =
+          "Vetor novo: [" + resposta + "]";
+      }
+
+      function Ordem() {
+        let novo = [];
+
+        for (let i = 0; i < vetor1.length; i++) {
+          novo.push(vetor1[i]);
+        }
+        for (let i = 0; i < vetor2.length; i++) {
+          novo.push(vetor2[i]);
+        }
+
+        for (let j = 0; j < novo.length - 1; j++) {
+          for (let i = 0; i < novo.length - 1; i++) {
+            if (novo[i] > novo[i + 1]) {
+              let aux = novo[i];
+              novo[i] = novo[i + 1];
+              novo[i + 1] = aux;
+            }
+          }
+        }
+        return novo;
+      }
+    </script>
+  </body>
+</html>

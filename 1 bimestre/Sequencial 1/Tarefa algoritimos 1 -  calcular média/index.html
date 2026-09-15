@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Media 4 notas</title>
+</head>
+
+<body>
+    <h1>Calcular Média</h1>
+
+    <label for="nota1">Nota 1: </label>
+    <input type="number" id="nota1">
+    
+<br>
+
+    <label for="nota2">Nota 2: </label>
+    <input type="number" id="nota2">
+
+<br>
+    
+    <label for="nota3">Nota 3: </label>
+    <input type="number" id="nota3">
+
+    <br>
+
+    <label for="nota4">Nota 4: </label>
+    <input type="number" id="nota4">
+
+    <br>
+
+    <input type="button" id="button" value="Calcular" onclick="funcaocalcularmedia ()">
+
+<br>
+
+    <label for="media">Média = </label>
+    <span id= "media"></span>
+
+    <script>
+        function funcaocalcularmedia () {
+            let n1 = parseFloat(document.getElementById("nota1").value)
+            let n2 = parseFloat(document.getElementById("nota2").value)
+            let n3 = parseFloat(document.getElementById("nota3").value)
+            let n4 = parseFloat(document.getElementById("nota4").value)
+
+            let media = (n1 + n2 + n3 + n4) / 4
+
+            document.getElementById("media").innerHTML = media
+        }
+        
+    </script>
+  
+
+
+
+
+
+</body>
+
+</html>

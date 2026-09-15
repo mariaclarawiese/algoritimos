@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css" />
+<title>Distancia pontos</title>
+</head>
+
+<body>
+<h1>Distância entre 2 pontos em um plano</h1>
+
+<p> Ponto 1: </p>
+
+<br>
+
+<label for="ponto1x">Valor x: </label>
+<input type="number" id="ponto1x"
+placeholder="Digite o valor de x1"> 
+<!--Coloca digite o valor de x1 dentro da caixinha number-->
+
+<br>
+
+<label for="ponto1y">Valor y: </label>
+<input type="number" id="ponto1y"
+placeholder="Digite o valor de x2">
+
+<br>
+
+<p> Ponto 2: </p>
+
+<br>
+
+<label for="ponto2x">Valor x: </label>
+<input type="number" id="ponto2x"
+placeholder="Digite o valor de 1y">
+
+<br>
+
+<label for="ponto2y">Valor y: </label>
+<input type="number" id="ponto2y"
+placeholder="Digite o valor de 2y">
+
+<br>
+
+<input type="button" id="button" value="Calcular distância" onclick="funcaocalcular ()">
+
+<br>
+
+<label for="resposta">Distãncia: </label>
+<span id="resposta"></span>
+
+
+<script>
+function funcaocalcular () {
+ 
+    let ponto1x = parseFloat(document.getElementById("ponto1x").value)
+    let ponto1y = parseFloat(document.getElementById("ponto1y").value)
+    let ponto2x = parseFloat(document.getElementById("ponto2x").value)
+    let ponto2y = parseFloat(document.getElementById("ponto2y").value)
+
+
+    let diferencax = (ponto2x - ponto1x)
+    let diferencay = (ponto2y - ponto1y)
+
+
+    let distanciafinal= Math.sqrt (diferencax ** 2 + diferencay ** 2)
+
+    document.getElementById("resposta").innerHTML = distanciafinal
+ }
+
+
+
+
+</script>
+
+</body>
+
+
+
+
+
+</html>

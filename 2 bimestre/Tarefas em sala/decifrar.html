@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decifrar</title>
+</head>
+<body>
+    <label for="texto">Digite o texto aqui: </label>
+    <input type="text" id="texto">
+    <br>
+    <button onclick="Calcular()">Trocar</button>
+    <br>
+    <span id="resp"> </span>
+    <br>
+
+    <script>
+        function Calcular() {
+            let texto = document.getElementById("texto").value;
+            let resposta = Trocar(texto);
+
+            document.getElementById("resp").innerHTML = resposta
+        }
+
+        function Trocar(texto) {
+    let aux = "";
+
+    for (let i = 0; i < texto.length; i++) {
+        if (texto[i] == "a" || texto[i] == "A") {
+            aux += "4";
+        } else if (texto[i] == "g" || texto[i] == "g") {
+            aux += "9";
+        } else if (texto[i] == "e" || texto[i] == "E") {
+            aux += "3";
+        } else if (texto[i] == "o" || texto[i] == "O") {
+            aux += "0";
+        }else if (texto[i] == "t" || texto[i] == "T") {
+            aux += "7";
+        }else if (texto[i] == "s" || texto[i] == "S") {
+            aux += "5";
+        } else if (texto[i] == "i" || texto[i] == "I") {
+            aux += "1";
+        } else if (texto[i] == "b" || texto[i] == "B") {
+            aux += "8";
+        } else {
+            aux += texto[i]
+        }
+    }
+
+    return aux;
+}
+    </script>
+    
+</body>
+</html>

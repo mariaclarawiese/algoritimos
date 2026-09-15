@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogais maiusculas</title>
+</head>
+<body>
+    <label for>Frase: </label>
+    <input type="text" id="frase">
+
+    <br>
+    <br>
+
+    <input type="button" id="button" value="Substituir" onclick="Substituir()">
+
+    <p id="resp"></p>
+
+    <script>
+        function Substituir() {
+          let frase = document.getElementById("frase").value.toLowerCase();
+          
+          let corte = frase.split("");
+
+          for (i = 0; i < corte.length; i++) {
+            if (corte[i] === "a") {
+                corte[i] = "A"
+            } else if (corte[i] === "e") {
+                corte[i] = "E"
+            } else if (corte[i] === "i") {
+                corte[i] = "I"
+            } else if (corte[i] === "o") {
+                corte[i] = "O"
+            } else if (corte[i] === "u") {
+                corte[i] = "U"
+            } else {
+                corte[i] = corte[i]
+            }
+          }
+
+          let juntar = corte.join("");
+
+          document.getElementById("resp").innerHTML = juntar
+        }
+    </script>
+
+    
+</body>
+</html>

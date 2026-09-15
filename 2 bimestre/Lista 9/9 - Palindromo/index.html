@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+</head>
+<body>
+    <label for="palavra">Palavra: </label>
+    <input type="text" id="palavra" />
+    <br />
+    <button onclick="Calcular()">Verificar</button>
+    <br />
+    <span id="resp"> </span>
+
+    <script>
+        function Calcular() {
+        let palavra = document.getElementById("palavra").value;
+        let resposta = Verificar(palavra);
+
+        document.getElementById("resp").innerHTML = resposta;
+        }
+
+        function Verificar(palavra) {
+            let aux = ""
+
+            for (let i = (palavra.length - 1); i >= 0; i--) {
+                aux += palavra[i]
+            }
+
+            if (palavra.toLowerCase().replaceAll(" ", "") === aux.toLowerCase().replaceAll(" ", "")) {
+                return "É palíndromo"
+            } else {
+                return "Não é palíndromo"
+            }
+        }
+    </script>
+
+</body>
+</html>

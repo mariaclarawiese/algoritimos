@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>I e ordens</title>
+</head>
+<body>
+    <h1>Operações conforme o valor de i</h1>
+
+    <p>Se i=1, escrever os valores de a, b, c em ordem crescente;</p>
+    <p>Se i=2, escrever os valores a, b, c em ordem decrescente;</p>
+    <p>Se i=3, escrever os valores de a, b, c de forma que o maior entre eles fique no meio</p>
+
+    <br>
+
+    <label for="i">I:  </label>
+    <input type="number" id="i" placeholder="Valor de i">
+
+    <br>
+    
+    <label for="a">A:  </label>
+    <input type="number" id="a" placeholder="Valor de a">
+
+    <br>
+
+    <label for="b">B:  </label>
+    <input type="number" id="b" placeholder="Valor de b">
+
+    <br>
+
+    <label for="c">C:  </label>
+    <input type="number" id="c" placeholder="Valor de c">
+
+    <br>
+
+    <input type="button" value="Calcular" onclick="Calcular ()">
+
+    <p id="resposta"></p>
+
+    <script>
+       
+       function Crescente(i, a, b, c) {
+    let resultado;
+
+    if (a <= b && b <= c) {
+        resultado = a + ", " + b + ", " + c;
+    } 
+    else if (a <= c && c <= b) {
+        resultado = a + ", " + c + ", " + b;
+    } 
+    else if (b <= a && a <= c) {
+        resultado = b + ", " + a + ", " + c;
+    } 
+    else if (b <= c && c <= a) {
+        resultado = b + ", " + c + ", " + a;
+    } 
+    else if (c <= a && a <= b) {
+        resultado = c + ", " + a + ", " + b;
+    } 
+    else {
+        resultado = c + ", " + b + ", " + a;
+    }
+
+    return resultado;
+}
+
+function Decrescente(i, a, b, c) {
+    let resultado;
+
+    if (a >= b && b >= c) {
+        resultado = a + ", " + b + ", " + c;
+    } 
+    else if (a >= c && c >= b) {
+        resultado = a + ", " + c + ", " + b;
+    } 
+    else if (b >= a && a >= c) {
+        resultado = b + ", " + a + ", " + c;
+    } 
+    else if (b >= c && c >= a) {
+        resultado = b + ", " + c + ", " + a;
+    } 
+    else if (c >= a && a >= b) {
+        resultado = c + ", " + a + ", " + b;
+    } 
+    else {
+        resultado = c + ", " + b + ", " + a;
+    }
+
+    return resultado;
+}
+
+function Meio(i, a, b, c) {
+    let resultado;
+
+    if (a >= b && a >= c) {
+        resultado = b + ", " + a + ", " + c;
+    }
+    else if (b >= a && b >= c) {
+        resultado = a + ", " + b + ", " + c;
+    }
+    else {
+        resultado = a + ", " + c + ", " + b;
+    }
+
+    return resultado;
+}
+       
+       
+       
+       
+       function Calcular () {
+            let i = parseFloat(document.getElementById("i").value);
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            let resultado
+
+            if (isNaN(i) || isNaN(a) || isNaN(b) || isNaN(c)) {
+                resultado = "Preencha todos os campos"
+            } else if (i === 1) {
+                resultado = Crescente (i, a, b, c)
+            } else if (i === 2) {
+                resultado = Decrescente (i, a, b, c)
+            } else if (i === 3) {
+                resultado = Meio (i, a, b, c)
+            } else {
+                resultado = "Preencha o campo i com uma das 3 opções"
+            }
+
+            document.getElementById("resposta").innerHTML = resultado
+        }
+    </script>
+
+
+
+
+</body>
+</html>

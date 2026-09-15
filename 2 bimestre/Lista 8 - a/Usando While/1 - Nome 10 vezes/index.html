@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um nome dez vezes em linhas diferentes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Ler o nome e escrever ele 10 vezes uma em cada linha</h1>
+
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome" placeholder="Digite o nome aqui">
+    <br>
+
+    <input type="button" id="button" value="Repetir" onclick="Repetir()">
+    <br>
+
+    <span id="resp"> </span>
+
+    <script>
+         function Repetir() {
+            let nome = document.getElementById("nome").value;
+
+            let resultado = Resultado(nome);
+
+            document.getElementById("resp").innerText = resultado
+         }
+
+         function Resultado(nome) {
+            let aux = " "
+            let i = 0
+            while (i < 10) {
+                aux = aux + nome + "\n";
+                i++
+            }
+            return aux
+         }
+
+    </script>
+    
+</body>
+</html>

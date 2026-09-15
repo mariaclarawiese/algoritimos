@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trocar numeros</title>
+</head>
+<body>
+    <h1>Trocar variáveis</h1>
+
+    <label for="A">A: </label>
+    <input type="number" id="A">
+
+    <br>
+
+    <label for="B">B: </label>
+    <input type="number" id="B">
+
+    <br>
+
+    <label for="C">C: </label>
+    <input type="number" id="C">
+
+    <br>
+
+    <input type="button" id="button" value="Trocar" onclick="Trocar ()">
+
+    <br>
+    <p id="CviraA">A: </p>
+    <p id="AviraB">B: </p>
+    <p id="BviraC">C: </p>
+
+    <script>
+        function Trocar () {
+            let A = parseFloat(document.getElementById("A")).value
+            let B = parseFloat(document.getElementById("B")).value
+            let C = parseFloat(document.getElementById("C")).value
+
+       
+
+            document.getElementById("CviraA").InnerHTML =  oi
+            document.getElementById("AviraB").InnerHTML = d
+            document.getElementById("BviraC").InnerHTML = a
+
+        
+        }
+
+    </script>
+
+    
+</body>
+</html>

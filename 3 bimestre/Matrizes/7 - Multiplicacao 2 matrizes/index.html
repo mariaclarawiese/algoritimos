@@ -1,0 +1,198 @@
+<!doctype html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Multiplicação de 2 matrizes</title>
+  </head>
+
+  <body>
+    <h1>Multiplicação de 2 matrizes</h1>
+
+    <label for="linhas">Linhas: </label>
+    <input type="number" id="linhas" value="4" />
+
+    <br /><br />
+
+    <label for="colunas">Colunas: </label>
+    <input type="number" id="colunas" value="4" />
+
+    <br /><br />
+
+    <label for="num">Números 1 por 1: </label>
+    <input type="number" id="num" />
+
+    <br /><br />
+
+    <button onclick="Adicionar1()">Adicionar a primeira matriz</button>
+    <button onclick="Exibir1()">Exibir a primeira matriz</button>
+
+    <br /><br />
+
+    <button onclick="Adicionar2()">Adicionar a segunda matriz</button>
+    <button onclick="Exibir2()">Exibir a segunda matriz</button>
+
+    <br /><br />
+
+    <button onclick="Multiplicar()">Multiplicar</button>
+
+    <br /><br />
+
+    <p id="exibir1">Matriz 1:</p>
+
+    <br />
+
+    <p id="exibir2">Matriz 2:</p>
+
+    <br />
+
+    <p id="resp">Resultado:</p>
+
+    <script>
+      let matriz1 = [];
+      let matriz2 = [];
+      let resultado = [];
+
+      let linha1;
+      let linha2;
+      let coluna1;
+      let coluna2;
+
+      let i1 = 0;
+      let j1 = 0;
+
+      let i2 = 0;
+      let j2 = 0;
+
+      function Adicionar1() {
+        linha1 = document.getElementById("linhas").value;
+        coluna1 = document.getElementById("colunas").value;
+
+        if (matriz1.length == 0) {
+          for (let i = 0; i < linha1; i++) {
+            matriz1[i] = [];
+
+            for (let j = 0; j < coluna1; j++) {
+              matriz1[i][j] = 0;
+            }
+          }
+        }
+
+        let num = parseInt(document.getElementById("num").value);
+
+        if (j1 == coluna1) {
+          j1 = 0;
+          i1++;
+        }
+
+        if (i1 == linha1) {
+          alert("A matriz 1 está cheia");
+          return;
+        }
+
+        matriz1[i1][j1] = num;
+
+        j1++;
+      }
+
+      function Adicionar2() {
+        linha2 = document.getElementById("linhas").value;
+        coluna2 = document.getElementById("colunas").value;
+
+        if (matriz2.length == 0) {
+          for (let i = 0; i < linha2; i++) {
+            matriz2[i] = [];
+
+            for (let j = 0; j < coluna2; j++) {
+              matriz2[i][j] = 0;
+            }
+          }
+        }
+
+        let num = parseInt(document.getElementById("num").value);
+
+        if (j2 == coluna2) {
+          j2 = 0;
+          i2++;
+        }
+
+        if (i2 == linha2) {
+          alert("A matriz 2 está cheia");
+          return;
+        }
+
+        matriz2[i2][j2] = num;
+
+        j2++;
+      }
+
+      function Exibir1() {
+        let aux = "";
+
+        for (let i = 0; i < linha1; i++) {
+          for (let j = 0; j < coluna1; j++) {
+            aux += matriz1[i][j] + " ";
+          }
+
+          aux += "<br>";
+        }
+
+        document.getElementById("exibir1").innerHTML = aux;
+      }
+
+      function Exibir2() {
+        let aux = "";
+
+        for (let i = 0; i < linha2; i++) {
+          for (let j = 0; j < coluna2; j++) {
+            aux += matriz2[i][j] + " ";
+          }
+
+          aux += "<br>";
+        }
+
+        document.getElementById("exibir2").innerHTML = aux;
+      }
+
+      function Multiplicar() {
+        if (coluna1 != linha2) {
+          alert("Não é possível multiplicar essas matrizes");
+
+          return;
+        }
+
+        resultado = [];
+
+        for (let i = 0; i < linha1; i++) {
+          resultado[i] = [];
+
+          for (let j = 0; j < coluna2; j++) {
+            resultado[i][j] = 0;
+          }
+        }
+
+        for (let i = 0; i < linha1; i++) {
+          for (let j = 0; j < coluna2; j++) {
+            for (let k = 0; k < coluna1; k++) {
+              resultado[i][j] += matriz1[i][k] * matriz2[k][j];
+            }
+          }
+        }
+
+        let aux = "";
+
+        for (let i = 0; i < linha1; i++) {
+          for (let j = 0; j < coluna2; j++) {
+            aux += resultado[i][j] + " ";
+          }
+
+          aux += "<br>";
+        }
+
+        document.getElementById("resp").innerHTML = aux;
+      }
+    </script>
+  </body>
+</html>

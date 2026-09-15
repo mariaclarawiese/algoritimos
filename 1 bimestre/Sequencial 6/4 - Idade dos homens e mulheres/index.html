@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Operacoes com idades</title>
+</head>
+<body>
+    <h1>Lê a idade dos dois homens e das duas mulheres (idades diferentes h e h / m e m) e calcular e escrever a soma da idade do homem mais velho com a mulher mais nova, e o produto da idade do homem mais novo com a mulher mais velha.</h1>
+
+    <label for="m1">Idade da primeira mulher: </label>
+    <input type="number" id="m1" placeholder="Digite a idade aqui">
+
+    <br>
+
+    <label for="m2">Idade da segunda mulher: </label>
+    <input type="number" id="m2" placeholder="Digite a idade aqui">
+
+    <br>
+    <br>
+    <br>
+
+    <label for="h1">Idade do primeiro homem: </label>
+    <input type="number" id="h1" placeholder="Digite a idade aqui">
+
+    <br>
+
+    <label for="h2">Idade do segundo homem: </label>
+    <input type="number" id="h2" placeholder="Digite a idade aqui">
+
+    <br>
+
+    <input type="button" value="Calcular" onclick="Calcular ()">
+
+    <p id="resultado"> </p>
+
+    <script>
+        function Calcular () {
+            let m1 = parseFloat(document.getElementById("m1").value);
+            let m2 = parseFloat(document.getElementById("m2").value);
+            let h1 = parseFloat(document.getElementById("h1").value);
+            let h2 = parseFloat(document.getElementById("h2").value);
+            let resposta
+
+            if (isNaN(m1) || isNaN(m2) || isNaN(h1) || isNaN(h2)) {
+                resposta = "Preencha todos os campos"
+            } else if (m1 === m2 || h1 === h2) {
+                resposta = "Não podem ter a mesma idade"
+            } else if (m1 > m2) {
+                if (h1 > h2) {
+                    resposta = "Soma: " + (m2 + h1) + " e Produto: " + (m1 * h2);
+                } else if (h1 < h2) {
+                    resposta = "Soma: " + (m2 + h2) + " e Produto: " + (m1 * h1);
+                }
+            } else if (m2 > m1) {
+                if (h1 > h2) {
+                    resposta = "Soma: " + (m1 + h1) + " e Produto: " + (m2 * h2);
+                } else if (h1 < h2) {
+                    resposta = "Soma: " + (m1 + h2) + " e Produto: " + (m2 * h1);
+                }
+            } 
+
+            document.getElementById("resultado").innerHTML = resposta
+        }
+    </script>
+
+    
+</body>
+</html>

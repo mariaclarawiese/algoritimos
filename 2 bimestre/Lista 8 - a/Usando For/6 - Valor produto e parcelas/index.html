@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto e Parcelas</title>
+</head>
+<body>
+    <h1>Calcula o valor das parcelas de um produto comprado a prazo</h1>
+    <br>
+    <label for="ValorP">Valor do produto: </label>
+    <input type="number" id="ValorP">
+    <br>
+    <label for="JurosM">Juros mensais em %: </label>
+    <input type="number" id="JurosM">
+    <br>
+    <label for="MesesP">Meses para o pagamento: </label>
+    <input type="number" id="MesesP">
+    <br>
+    <input type="button" id="button" value="Calcular" onclick="Calcular()">
+    <br>
+    <span id="resp"> </span>
+    <br>
+
+    <script>
+        function Calcular() {
+            const produto = parseFloat(document.getElementById("ValorP").value);
+            const juros = parseFloat(document.getElementById("JurosM").value);
+            const meses = parseInt(document.getElementById("MesesP").value);
+            let resposta
+
+            if (juros < 0 || meses <= 0 || meses > 12) {
+                alert("ERRO, reveja as entradas");
+                return;
+            } else {
+                resposta = Parcelas(juros, meses, produto)
+            }
+
+            document.getElementById("resp").innerHTML = "O valor total a ser pago é: " + resposta + " R$, e o valor de cada parcela é: " + resposta / meses
+        }
+
+        function Parcelas(juros, meses, produto) {
+            let aux = produto
+
+            for (let i = 1; i <= meses; i++) {
+                aux = aux + juros / 100 * aux 
+            }
+            return aux
+        }
+    </script>
+    
+</body>
+</html>

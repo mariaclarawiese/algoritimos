@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Times e vencedor</title>
+</head>
+<body>
+    <h1>Ler o nome de dois times e o número de gols marcados na partida e escrever o vencedor ou se empatou</h1>
+
+    <label for="nome1">Primeiro time: </label>
+    <input type="text" id="nome1" placeholder="Digite o nome aqui">
+
+    <br>
+
+    <label for="ponto1">Pontuação do primeiro time: </label>
+    <input type="number" id="ponto1" placeholder="Digite a pontuação aqui">
+
+    <br>
+    <br>
+    <br>
+
+    <label for="nome2">Segundo time: </label>
+    <input type="text" id="nome2" placeholder="Digite o nome aqui">
+
+    <br>
+
+    <label for="ponto2">Pontuação do segundo time: </label>
+    <input type="number" id="ponto2" placeholder="Digite a pontuação aqui">
+
+    <br>
+
+    <input type="button" value="Calcular" onclick="Calcular ()">
+
+    <br>
+
+    <p id="resultado">O vencedor sairá aqui: </p>
+
+    <script>
+        function Calcular () {
+            let nome1 = document.getElementById("nome1").value;
+            let ponto1 = parseFloat(document.getElementById("ponto1").value);
+            let nome2 = document.getElementById("nome2").value;
+            let ponto2 = parseFloat(document.getElementById("ponto2").value);
+            let resposta
+
+            if (nome1 === "" || nome2 === "" || isNaN(ponto1) || isNaN(ponto2)) {
+                resposta = "Preencha todos os campos";
+            } else if (ponto1 > ponto2) {
+                resposta = "O time vencedor é: " + nome1;
+            } else if (ponto2 > ponto1) {
+                resposta = "O time vencedor é: " + nome2;
+            } else if (ponto1 === ponto2) {
+                resposta = "EMPATE";
+            }
+            
+            document.getElementById("resultado").innerHTML = resposta
+            
+        }
+    </script>
+    
+</body>
+</html>
